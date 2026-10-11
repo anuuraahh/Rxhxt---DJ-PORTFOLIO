@@ -485,6 +485,26 @@ footer .foot-logo img { height: clamp(64px, 7.5vw, 112px); filter: none; }
 .tile .tag { max-width: calc(100% - 24px); line-height: 1.35; white-space: normal; text-align: left; }
 .meet-grid { columns: 4 220px; }
 #meet .rv:first-child { text-align: left; }
+
+/* ---- contact rows: tidy two-column rows ---- */
+.reach .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 18px 22px; min-height: 92px; }
+.reach .row > div:first-child { min-width: 0; display: grid; gap: 6px; }
+.reach .row small { line-height: 1; }
+.reach .row b { font-size: clamp(15px, 1.2vw, 19px); line-height: 1.25; overflow-wrap: anywhere; }
+.reach .row .acts { justify-self: end; }
+.reach .mini { white-space: nowrap; }
+.phone-row { cursor: pointer; outline: none; }
+.phone-row:focus-visible { border-color: var(--ice); }
+.phone { display: inline-grid; }
+.phone > span { grid-area: 1 / 1; transition: opacity .25s; white-space: nowrap; }
+.phone .ph-real { opacity: 0; }
+.phone-row:hover .ph-mask, .phone-row:focus-visible .ph-mask, .phone-row.show .ph-mask { opacity: 0; }
+.phone-row:hover .ph-real, .phone-row:focus-visible .ph-real, .phone-row.show .ph-real { opacity: 1; }
+.ph-hint { font-size: 12px; letter-spacing: .06em; color: var(--dim); line-height: 1.2; }
+form.book .btn { white-space: nowrap; }
+.reach [data-email] { overflow-wrap: normal; }
+@media (max-width: 480px) { .reach .row { padding: 16px 18px; gap: 12px; } .reach .row b { font-size: 15px; } }
+@media (max-width: 1100px) { .contact { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -694,7 +714,7 @@ footer .foot-logo img { height: clamp(64px, 7.5vw, 112px); filter: none; }
       <span class="kicker">Booking</span>
       <h2 style="margin-top:18px">Let's make the room <em>move.</em></h2>
       <div class="reach">
-        <div class="row phone-row"><div><small>Phone / WhatsApp</small><b class="phone" tabindex="0" data-phone aria-label="Phone number, hover or tap to reveal"><span class="ph-mask">+91 ##########</span><span class="ph-real">+91 9363707023</span></b></div><span class="ph-hint" data-ph-hint>Hover cursor to reveal</span></div>
+        <div class="row phone-row" data-phone tabindex="0" aria-label="Phone number, hover or tap to reveal"><div><small>Phone / WhatsApp</small><b class="phone"><span class="ph-mask">+91 ##########</span><span class="ph-real">+91 9363707023</span></b><span class="ph-hint" data-ph-hint>Hover cursor to reveal</span></div></div>
         <div class="row" data-email-row hidden><div><small>Email</small><b data-email></b></div><div class="acts"><button class="mini" type="button" data-copy-email>Copy</button></div></div>
         <div class="row"><div><small>Instagram</small><b>@_rxhxt._</b></div><div class="acts"><a class="mini" href="https://ig.me/m/_rxhxt._" target="_blank" rel="noopener">Send a DM</a></div></div>
       </div>
@@ -860,7 +880,7 @@ const CONFIG = {
 
   /* ---------- config-driven bits ---------- */
   if (CONFIG.pronounce) { const p = d.querySelector('[data-config="pronounce"]'); p.textContent = CONFIG.pronounce; p.hidden = false; }
-  if (CONFIG.email) { d.querySelector("[data-email]").textContent = CONFIG.email; d.querySelector("[data-email-row]").hidden = false; }
+  if (CONFIG.email) { const em = d.querySelector("[data-email]"), at = CONFIG.email.indexOf("@"); em.textContent = ""; em.append(CONFIG.email.slice(0, at + 1), d.createElement("wbr"), CONFIG.email.slice(at + 1)); d.querySelector("[data-email-row]").hidden = false; }
   if (CONFIG.dhwaniInstagram) d.querySelector("[data-dhwani-link]").innerHTML = `<a class="btn" href="${CONFIG.dhwaniInstagram}" target="_blank" rel="noopener">${svg("instagram").replace('<svg', '<svg style="width:16px;height:16px;fill:currentColor"')} Dhwani on Instagram</a>`;
   /* Dhwani: the band photo, with a button to their reel on Instagram */
   const rm = (CONFIG.dhwaniReel || "").match(/instagram\.com\/(reel|p)\/([A-Za-z0-9_-]+)/);
