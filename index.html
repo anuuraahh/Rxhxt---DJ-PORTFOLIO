@@ -128,7 +128,7 @@ p { margin: 0; }
 .story-copy p { color: #c8ccd3; max-width: 62ch; }
 .story-copy p.big { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.22; color: #fff; }
 .story-copy p.big em { font-style: normal; color: var(--ice); }
-.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 8px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 8px; }
 .facts div { padding: 18px 16px 0 0; }
 .facts b { display: block; font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); color: var(--chrome); }
 .facts span { font-size: 13px; color: var(--dim); }
@@ -452,6 +452,39 @@ main, footer, .hero { position: relative; z-index: 1; }
 .logo-3d.melting .logo-img { -webkit-mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), transparent 0%, transparent 45%, #000 100%); mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), transparent 0%, transparent 45%, #000 100%); }
 .reach b { overflow-wrap: anywhere; }
 .dhwani-desc { color: var(--dim); max-width: 52ch; margin: 14px 0 0; font-size: 16px; line-height: 1.65; }
+
+/* ---- v5: hero keeps the face and body clear; lighter effects for Chrome ---- */
+.bgfx img[data-bg], .bgfx .bg-soft { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 66% 62%; filter: none; transform: none; will-change: auto; }
+.bgfx .bg-soft { opacity: var(--b, 0); will-change: opacity; }
+.nav.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(0,0,0,.88); }
+.logo-stage { left: var(--lx, 50vw); right: auto; width: max-content; transform: translate(-50%, -50%); }
+.logo-stage .hero-logo { filter: none; will-change: transform, opacity; }
+.logo-sheen { mix-blend-mode: normal; opacity: .55; }
+/* landscape screens: slide the photo right so the logo stays centred and the face and body sit clear of it */
+@media (min-width: 701px) and (min-aspect-ratio: 1/1) {
+  .bgfx img[data-bg], .bgfx .bg-soft { inset: auto; left: 23vw; top: calc(58vh - 38.25vw); width: 100vw; height: 75vw; object-fit: fill; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%); mask-image: linear-gradient(90deg, transparent, #000 14%); }
+}
+@media (max-width: 700px) {
+  .bgfx img[data-bg], .bgfx .bg-soft { object-position: 76% 50%; }
+  .bgfx-shade { background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 62%, rgba(0,0,0,.75)); }
+  .hero { grid-template-rows: auto 1fr auto; align-content: stretch; place-items: center; text-align: center; padding-top: calc(var(--nav-h) + 4px); }
+  .hero-inner, .hero-foot { justify-items: center; text-align: center; }
+  .hero-foot { grid-row: 3; }
+  .hero-foot .btns { justify-content: center !important; }
+  .logo-stage .hero-logo, .logo-spacer { width: 84vw; }
+}
+.phone { cursor: pointer; outline: none; display: inline-grid; }
+.phone > span { grid-area: 1 / 1; transition: opacity .25s; }
+.phone .ph-real { opacity: 0; }
+.phone:hover .ph-mask, .phone:focus-visible .ph-mask, .phone.show .ph-mask { opacity: 0; }
+.phone:hover .ph-real, .phone:focus-visible .ph-real, .phone.show .ph-real { opacity: 1; }
+.ph-hint { font-size: 12px; letter-spacing: .08em; color: var(--dim); }
+footer { padding-block: 4px calc(4px + env(safe-area-inset-bottom, 0px)); }
+footer .foot-logo img { height: clamp(64px, 7.5vw, 112px); filter: none; }
+@media (max-width: 760px) { footer .foot-logo img { height: auto; width: min(80vw, 340px); } }
+.tile .tag { max-width: calc(100% - 24px); line-height: 1.35; white-space: normal; text-align: left; }
+.meet-grid { columns: 4 220px; }
+#meet .rv:first-child { text-align: left; }
 </style>
 </head>
 <body>
@@ -472,7 +505,7 @@ main, footer, .hero { position: relative; z-index: 1; }
 <main>
 <!-- ============ HERO (swap: hero video + poster) ============ -->
 <!-- background: the masked-DJ photo stays behind the whole page, blurring as you scroll (swap: media/hero-mask.jpg) -->
-<div class="bgfx" aria-hidden="true"><img src="media/hero-mask.jpg" alt="" data-bg><span class="bgfx-shade" data-shade></span></div>
+<div class="bgfx" aria-hidden="true" data-bgfx><img src="media/hero-bg.jpg" alt="" data-bg><img src="media/hero-bg-blur.jpg" alt="" class="bg-soft"><span class="bgfx-shade" data-shade></span></div>
 <svg class="fx-defs" aria-hidden="true" width="0" height="0"><defs>
   <filter id="melt" x="-10%" y="-20%" width="120%" height="160%" color-interpolation-filters="sRGB">
     <feTurbulence type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="1" seed="7" result="n" data-turb/>
@@ -540,12 +573,21 @@ main, footer, .hero { position: relative; z-index: 1; }
       <span class="kicker">Story</span>
       <h2>From a carnival stall to <span class="chrome-text">Red Bull.</span></h2>
       <p class="big">I started out in Soundation, a browser studio, then moved to FL Studio, and today I produce for artists. I make the sounds people don't often hear, and the kind of music people <em>remember me by.</em></p>
-      <p>I started DJing in high school, in 2024, on a school-carnival DJ floor I ran with friends. Ideas for mixes and transitions kept coming to me while producing, so I moved to Virtual DJ. Then came a Halloween party at Medai The Stage, and Red Bull Juggernaut's FOUR 2 SCORE, where everything changed. The best part of any set is the look on people's faces.</p>
+      <p>I started DJing in high school, in 2024, on a school-carnival DJ floor I ran with friends. Ideas for mixes and transitions kept coming to me while producing, so I moved to Virtual DJ. Then came a Halloween party at Medai The Stage, and Red Bull FOUR 2 SCORE, where everything changed. The best part of any set is the look on people's faces.</p>
       <div class="facts">
+        <div><b>13</b><span>age I started producing</span></div>
         <div><b>2024</b><span>first DJ floor, school carnival</span></div>
         <div><b>15</b><span>members in Dhwani, my band</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ MEET ============ -->
+<section id="meet">
+  <div class="wrap">
+    <div class="rv"><span class="kicker">Meet</span><h2 style="margin-top:18px">Meet <span class="chrome-text">rxhxt.</span></h2></div>
+    <div class="masonry meet-grid" data-meet></div>
   </div>
 </section>
 
@@ -582,13 +624,13 @@ main, footer, .hero { position: relative; z-index: 1; }
     <div class="feature-copy rv">
       <span class="kicker">Live set</span>
       <h2>Watch the <span class="chrome-text">room move.</span></h2>
-      <p class="lede">The crowd at Red Bull Juggernaut's FOUR 2 SCORE, from the booth. A full showreel is on the way.</p>
+      <p class="lede">The crowd at Red Bull FOUR 2 SCORE, from the booth. A full showreel is on the way.</p>
       <div class="btns"><a class="btn" href="#live">See the gigs</a></div>
     </div>
     <div class="player rv" data-player>
       <video playsinline loop preload="metadata" poster="media/redbull-crowd-poster.jpg"><source src="media/redbull-crowd.mp4" type="video/mp4"></video>
       <button class="play" type="button" aria-label="Play the live set clip"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
-      <span class="cap">Red Bull Juggernaut FOUR 2 SCORE · crowd</span>
+      <span class="cap">Red Bull FOUR 2 SCORE · crowd</span>
     </div>
   </div>
 </section>
@@ -599,12 +641,12 @@ main, footer, .hero { position: relative; z-index: 1; }
     <div class="rv"><span class="kicker">Live</span><h2 style="margin-top:18px">Rooms I've <span class="chrome-text">moved.</span></h2></div>
     <div class="live-grid">
       <article class="event rv">
-        <div class="media" data-open="2"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt in front of the Red Bull Juggernaut van at FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull Juggernaut</span></div>
-        <div class="info"><span class="venue">Red Bull Juggernaut · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull Juggernaut booth. Where everything changed.</p></div>
+        <div class="media" data-open="2"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt at Red Bull FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull · FOUR 2 SCORE</span></div>
+        <div class="info"><span class="venue">Red Bull · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull Juggernaut booth.</p></div>
       </article>
       <article class="event rv">
         <div class="media" data-open="5"><img src="media/medai-halloween.jpg" width="1280" height="960" alt="A DJ in a masked costume under a single warm spotlight at the Medai The Stage Halloween party" loading="lazy" style="object-position:66% 50%"><video muted loop playsinline preload="none" poster="media/medai-floor-poster.jpg"><source src="media/medai-floor.mp4" type="video/mp4"></video><span class="badge b">Halloween 2025</span></div>
-        <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in purple light, all night.</p></div>
+        <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in scary flickering lights, all night.</p></div>
       </article>
       <article class="event rv">
         <div class="media"><img src="media/dhwani.jpg" width="576" height="1024" alt="Dhwani band members together in a lift" loading="lazy" style="object-position:50% 40%"><span class="badge">With Dhwani</span></div>
@@ -652,6 +694,7 @@ main, footer, .hero { position: relative; z-index: 1; }
       <span class="kicker">Booking</span>
       <h2 style="margin-top:18px">Let's make the room <em>move.</em></h2>
       <div class="reach">
+        <div class="row phone-row"><div><small>Phone / WhatsApp</small><b class="phone" tabindex="0" data-phone aria-label="Phone number, hover or tap to reveal"><span class="ph-mask">+91 ##########</span><span class="ph-real">+91 9363707023</span></b></div><span class="ph-hint" data-ph-hint>Hover cursor to reveal</span></div>
         <div class="row" data-email-row hidden><div><small>Email</small><b data-email></b></div><div class="acts"><button class="mini" type="button" data-copy-email>Copy</button></div></div>
         <div class="row"><div><small>Instagram</small><b>@_rxhxt._</b></div><div class="acts"><a class="mini" href="https://ig.me/m/_rxhxt._" target="_blank" rel="noopener">Send a DM</a></div></div>
       </div>
@@ -691,7 +734,7 @@ main, footer, .hero { position: relative; z-index: 1; }
    ========================================================== */
 const CONFIG = {
   pronounce: "",                     // e.g. 'say it "ruh-hut"'
-  email: "rohit07.personal@gmail.com",                         // e.g. "bookings@rxhxt.in"
+  email: "basstraprohit@gmail.com",                         // e.g. "bookings@rxhxt.in"
   dhwaniInstagram: "https://www.instagram.com/dhwanii.____/",
   dhwaniReel: "https://www.instagram.com/reel/DWyuHGqx1dv/",   // shown in the Dhwani section
   dhwaniPhoto: "media/dhwani.jpg",
@@ -714,16 +757,34 @@ const CONFIG = {
     { name: "BandLab", handle: "prod_rxhxt", url: "https://www.bandlab.com/prod_rxhxt", color: "#f5f5f5", icon: "bandlab" },
     { name: "Instagram", handle: "@_rxhxt._", url: "https://www.instagram.com/_rxhxt._", color: "#ff5fa2", icon: "instagram" },
   ],
+  meet: [
+    { type: "image", src: "media/meet-01.jpg", w: 1200, h: 554, alt: "Rxhxt leaning on the Red Bull truck at night", tag: "" },
+    { type: "image", src: "media/meet-02.jpg", w: 1200, h: 900, alt: "Rxhxt masked and spotlit behind the decks", tag: "" },
+    { type: "image", src: "media/meet-03.jpg", w: 960, h: 1280, alt: "Rxhxt in a masked costume throwing up a peace sign", tag: "" },
+    { type: "image", src: "media/meet-04.jpg", w: 738, h: 1600, alt: "Mirror selfie in a leather jacket", tag: "" },
+    { type: "image", src: "media/meet-05.jpg", w: 960, h: 1280, alt: "Rxhxt with arms crossed beside the Red Bull truck", tag: "" },
+    { type: "image", src: "media/meet-06.jpg", w: 720, h: 1280, alt: "Selfie in front of the Red Bull Juggernaut screen", tag: "" },
+    { type: "image", src: "media/meet-07.jpg", w: 1200, h: 1600, alt: "Rxhxt throwing up a hand sign from the booth on the Red Bull truck", tag: "" },
+    { type: "image", src: "media/meet-08.jpg", w: 1200, h: 1600, alt: "Rxhxt in a red shirt and sunglasses", tag: "" },
+    { type: "image", src: "media/meet-09.jpg", w: 899, h: 1599, alt: "Rxhxt at the decks under purple light", tag: "" },
+    { type: "image", src: "media/meet-10.jpg", w: 899, h: 1599, alt: "Rxhxt behind the mixer with the crowd behind him", tag: "" },
+  ],
   gallery: [
     { type: "image", src: "media/dj-purple.jpg", w: 719, h: 1280, alt: "Rxhxt at the decks under purple light", tag: "On the decks" },
-    { type: "video", src: "media/redbull-booth-clip.mp4", poster: "media/redbull-booth-clip-poster.jpg", w: 464, h: 832, alt: "Clip walking into the Red Bull Juggernaut booth to the decks", tag: "Red Bull Juggernaut booth" },
-    { type: "image", src: "media/redbull-booth.jpg", w: 960, h: 1280, alt: "Rxhxt throwing up a hand sign from the Red Bull Juggernaut DJ booth", tag: "FOUR 2 SCORE" },
+    { type: "video", src: "media/booth-lights.mp4", poster: "media/booth-lights-poster.jpg", w: 816, h: 464, alt: "Rxhxt behind the decks at Fright Nights, the Halloween party", tag: "Fright Nights - Halloween Party" },
+    { type: "video", src: "media/redbull-booth-clip.mp4", poster: "media/redbull-booth-clip-poster.jpg", w: 464, h: 832, alt: "Prepping up Red Bull's Four 2 Score", tag: "Prepping up Red Bull's Four 2 Score" },
+    { type: "image", src: "media/redbull-booth.jpg", w: 960, h: 1280, alt: "Rxhxt throwing up a hand sign from the Red Bull DJ booth", tag: "FOUR 2 SCORE" },
+    { type: "image", src: "media/redbull-truck-booth.jpg", w: 960, h: 1280, alt: "Rxhxt DJing from the booth on top of the Red Bull truck at FOUR 2 SCORE", tag: "Red Bull FOUR 2 SCORE" },
+    { type: "video", src: "media/redbull-crowd-2.mp4", poster: "media/redbull-crowd-2-poster.jpg", w: 478, h: 850, alt: "The crowd dancing beside the Red Bull truck at Four 2 Score", tag: "Crowd vibes" },
+    { type: "video", src: "media/dacalty.mp4", poster: "media/dacalty-poster.jpg", w: 464, h: 832, alt: "A moment for Dacalty at Red Bull Four 2 Score", tag: "A moment for Dacalty" },
     { type: "image", src: "media/redbull-van.jpg", w: 1280, h: 591, alt: "Rxhxt in front of the Red Bull Juggernaut van", tag: "Red Bull Juggernaut" },
-    { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "The dance floor at the Medai The Stage Halloween party", tag: "Medai · Halloween" },
+    { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "Crowd at Fright Nights, the Halloween party", tag: "Crowd at Fright Nights - Halloween Party" },
     { type: "image", src: "media/medai-halloween.jpg", w: 1280, h: 960, alt: "A masked DJ under a warm spotlight at Medai The Stage", tag: "Halloween 2025" },
     { type: "image", src: "media/dhwani.jpg", w: 576, h: 1024, alt: "Dhwani band members together in a lift", tag: "Dhwani" },
     { type: "image", src: "media/portrait-bmw.jpg", w: 960, h: 1280, alt: "Rxhxt standing in front of a white BMW at night", tag: "Off stage" },
-    { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "The crowd jumping at Red Bull Juggernaut FOUR 2 SCORE", tag: "Red Bull Juggernaut crowd" },
+    { type: "image", src: "media/portrait-red.jpg", w: 960, h: 1280, alt: "Rxhxt in a red shirt and sunglasses posing at night", tag: "Off stage" },
+    { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "Vibes at Red Bull's Four 2 Score", tag: "Vibes at Red Bull's Four 2 Score" },
+    { type: "video", src: "media/redbull-crowd-3.mp4", poster: "media/redbull-crowd-3-poster.jpg", w: 464, h: 832, alt: "Four 2 Score crowd", tag: "Four 2 Score crowd" },
   ],
 };
 </script>
@@ -742,19 +803,20 @@ const CONFIG = {
 
   /* ---------- hero: logo grows and fades into the background as you scroll; background blurs ---------- */
   const root = d.documentElement, logoBox = d.querySelector("[data-logo]"), heroFoot = d.querySelector("[data-herofoot]");
-  const stage = d.querySelector("[data-stage]"), spacer = d.querySelector("[data-spacer]");
-  let homeY = innerHeight / 2;
-  const place = () => { const r = spacer.getBoundingClientRect(); homeY = r.top + scrollY + r.height / 2; };
+  const stage = d.querySelector("[data-stage]"), spacer = d.querySelector("[data-spacer]"), bgfx = d.querySelector("[data-bgfx]"), cue = d.querySelector(".scroll-cue");
+  let homeY = innerHeight / 2, homeX = innerWidth / 2;
+  const place = () => { const r = spacer.getBoundingClientRect(); homeY = r.top + scrollY + r.height / 2; homeX = r.left + r.width / 2; };
   const fx = () => {
     const vh = innerHeight, y = Math.max(0, scrollY), p = Math.min(1, y / (vh * .9));
     const e = p * p * (3 - 2 * p);
-    root.style.setProperty("--b", Math.min(1, y / (vh * .7)).toFixed(3));
+    bgfx.style.setProperty("--b", Math.min(1, y / (vh * .7)).toFixed(3));
     /* the logo stays put on screen, drifts to the centre, grows, softens and fades to a faint watermark */
     stage.style.setProperty("--ly", (homeY + (vh / 2 - homeY) * e).toFixed(1) + "px");
-    const hs = reduce ? 1 : 1 + e * .55, ho = 1 - e * .86, hb = e * 5;
-    logoBox.style.setProperty("--hs", hs.toFixed(3)); logoBox.style.setProperty("--ho", ho.toFixed(3)); logoBox.style.setProperty("--hb", hb.toFixed(2) + "px");
+    stage.style.setProperty("--lx", (homeX + (innerWidth / 2 - homeX) * e).toFixed(1) + "px");
+    const hs = reduce ? 1 : 1 + e * .55, ho = 1 - e * .86;
+    logoBox.style.setProperty("--hs", hs.toFixed(3)); logoBox.style.setProperty("--ho", ho.toFixed(3));
     heroFoot.style.setProperty("--fo", Math.max(0, 1 - y / (vh * .18)).toFixed(3));
-    d.querySelector(".scroll-cue").style.setProperty("--fo", Math.max(0, 1 - y / (vh * .2)).toFixed(3));
+    cue.style.setProperty("--fo", Math.max(0, 1 - y / (vh * .2)).toFixed(3));
   };
   addEventListener("resize", () => { const y = scrollY; place(); fx(); });
   place();
@@ -777,7 +839,7 @@ const CONFIG = {
       requestAnimationFrame(tick);
       if (scrollY > innerHeight * .5) { if (melt > 0) { melt = target = 0; l3.classList.remove("melting"); } return; }
       target *= .94; melt += (target - melt) * .15; mx += (tmx - mx) * .25; my += (tmy - my) * .25;
-      const on = melt > .03; l3.classList.toggle("melting", on); if (!on) return;
+      const on = melt > .03; if (on !== l3.classList.contains("melting")) l3.classList.toggle("melting", on); if (!on) return;
       const t = (now - t0) / 1000, w = l3.clientWidth;
       turb.setAttribute("baseFrequency", `${(.007 + Math.sin(t * .9) * .0015).toFixed(4)} ${(.02 + Math.sin(t * 1.4) * .005).toFixed(4)}`);
       disp.setAttribute("scale", (10 + melt * 30).toFixed(1));
@@ -873,6 +935,7 @@ const CONFIG = {
     setTimeout(() => (btn.textContent = old), 1800);
   };
   d.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", () => copy(d.querySelector(`[data-bio="${b.dataset.copy}"]`).textContent, b)));
+  const ph = d.querySelector("[data-phone]"); if (ph) { if (matchMedia("(hover: none)").matches) d.querySelector("[data-ph-hint]").textContent = "Tap to reveal"; ph.addEventListener("click", () => ph.classList.toggle("show")); }
   const ce = d.querySelector("[data-copy-email]"); if (ce) ce.addEventListener("click", (e) => copy(CONFIG.email, e.currentTarget));
 
   /* ---------- hero video: only the visible copy plays; poster shows if autoplay is blocked ---------- */
@@ -888,21 +951,24 @@ const CONFIG = {
   gal.innerHTML = G.map((g, i) => `<button class="tile rv" type="button" data-i="${i}" aria-label="Open: ${g.alt}">${g.type === "video"
     ? `<video muted loop playsinline preload="none" poster="${g.poster}" width="${g.w}" height="${g.h}"><source src="${g.src}" type="video/mp4"></video><span class="vid">${'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>'}</span>`
     : `<img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy">`}<span class="tag">${g.tag}</span></button>`).join("");
+  const M = CONFIG.meet || [], meet = d.querySelector("[data-meet]");
+  if (meet) meet.innerHTML = M.map((g, i) => `<button class="tile rv" type="button" data-i="${i}" aria-label="Open: ${g.alt}"><img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy"></button>`).join("");
   /* gallery clips play silently while on screen */
   if ("IntersectionObserver" in window && !reduce) {
     const vio = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: .35 });
     gal.querySelectorAll("video").forEach((v) => vio.observe(v));
   }
   const lb = d.querySelector("[data-lightbox]"), lbm = lb.querySelector("[data-lb-media]"), lbc = lb.querySelector("[data-lb-cap]");
-  let cur = 0, lastFocus = null;
+  let cur = 0, lastFocus = null, L = G;
   const show = (i) => {
-    cur = (i + G.length) % G.length; const g = G[cur];
+    cur = (i + L.length) % L.length; const g = L[cur];
     lbm.innerHTML = g.type === "video" ? `<video src="${g.src}" poster="${g.poster}" controls autoplay playsinline loop></video>` : `<img src="${g.src}" alt="${g.alt}">`;
-    lbc.textContent = g.tag;
+    lbc.textContent = g.tag || "";
   };
-  const open = (i, from) => { lastFocus = from; show(i); lb.hidden = false; d.body.style.overflow = "hidden"; lb.querySelector(".x").focus(); };
+  const open = (i, from, list) => { L = list || G; lastFocus = from; show(i); lb.hidden = false; d.body.style.overflow = "hidden"; lb.querySelector(".x").focus(); };
   const close = () => { lb.hidden = true; lbm.innerHTML = ""; d.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); };
-  gal.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t); });
+  gal.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t, G); });
+  if (meet) meet.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t, M); });
   d.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => open(+el.dataset.open, el)));
   lb.querySelector(".x").addEventListener("click", close);
   lb.querySelector(".prev").addEventListener("click", () => show(cur - 1));
