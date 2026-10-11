@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rxhxt | DJ &amp; Producer, Coimbatore</title>
+<meta name="description" content="Rxhxt is a DJ and music producer from Coimbatore, India. Open-format sets from techno, schranz and trance to baile funk, hip hop and Tamil. Book Rxhxt for your next event.">
+<meta property="og:title" content="Rxhxt | DJ &amp; Producer, Coimbatore">
+<meta property="og:description" content="Sounds you don't hear every day. Sounds you never forget.">
+<meta property="og:image" content="media/og.jpg">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700&family=UnifrakturCook:wght@700&display=swap">
+<style>
+/* Layout: one long black stage. Full-bleed hero, then editorial sections with huge type and lots of black space. */
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --bg-2: #0b0c0e;
+  --line: #1e2024;
+  --text: #eef1f4;
+  --dim: #8b9099;
+  --chrome: #d9dee5;
+  --ice: #8fe3ff;
+  --bronze: #cf8f57;
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-logo: "UnifrakturCook", "Old English Text MT", "Times New Roman", serif;
+  --gutter: clamp(16px, 5vw, 64px);
+  --max: 1280px;
+  --nav-h: 64px;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+::selection { background: var(--ice); color: #000; }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
+.wrap { width: min(var(--max), 100% - 2 * var(--gutter)); margin-inline: auto; }
+section { position: relative; padding-block: clamp(80px, 12vw, 160px); scroll-margin-top: var(--nav-h); }
+
+/* type */
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; line-height: .98; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(40px, 7vw, 104px); text-transform: uppercase; }
+h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 600; letter-spacing: 0; line-height: 1.15; }
+p { margin: 0; }
+.kicker { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--ice); }
+.kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+.lede { font-size: clamp(18px, 1.6vw, 22px); color: #c8ccd3; max-width: 60ch; }
+.chrome-text { background: linear-gradient(180deg, #ffffff 0%, #cfd5dd 38%, #7f8792 52%, #e9edf2 64%, #9aa3ae 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* logo stand-in (swap for the real logo image when it's uploaded) */
+.logo { font-family: var(--font-logo); font-weight: 700; line-height: .9; letter-spacing: .01em; position: relative; display: inline-block; }
+.logo img { height: 1em; width: auto; }
+.logo .word { background: linear-gradient(180deg, #ffffff 0%, #e6eaef 30%, #6f7884 48%, #f4f7fa 58%, #a9b2bd 78%, #e8ecf1 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 18px rgba(143, 227, 255, .18)); }
+.logo .word.shimmer { background-size: 100% 100%, 250% 100%; background-image: linear-gradient(180deg, #ffffff 0%, #e6eaef 30%, #6f7884 48%, #f4f7fa 58%, #a9b2bd 78%, #e8ecf1 100%), linear-gradient(105deg, transparent 40%, rgba(255,255,255,.9) 50%, transparent 60%); background-blend-mode: screen; animation: shimmer 6s ease-in-out infinite; }
+@keyframes shimmer { 0%, 55% { background-position: 0 0, 140% 0; } 85%, 100% { background-position: 0 0, -40% 0; } }
+.spark { position: absolute; width: .12em; height: .12em; pointer-events: none; }
+.spark::before, .spark::after { content: ""; position: absolute; inset: 0; margin: auto; background: #fff; border-radius: 2px; }
+.spark::before { width: 100%; height: 12%; box-shadow: 0 0 8px #fff, 0 0 18px var(--ice); }
+.spark::after { width: 12%; height: 100%; box-shadow: 0 0 8px #fff; }
+.spark { animation: twinkle 3.2s ease-in-out infinite; }
+@keyframes twinkle { 0%, 100% { opacity: .2; transform: scale(.6) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+@media (prefers-reduced-motion: reduce) { .logo .word.shimmer, .spark { animation: none; } .spark { opacity: .8; } }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid rgba(255,255,255,.28); font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; background: rgba(255,255,255,.04); cursor: pointer; transition: box-shadow .25s, border-color .25s, background .25s, transform .2s; }
+.btn:hover { border-color: var(--ice); box-shadow: 0 0 0 1px rgba(143,227,255,.4), 0 0 28px rgba(143,227,255,.35); transform: translateY(-1px); }
+.btn.solid { background: linear-gradient(180deg, #ffffff, #c9d0d8); color: #000; border-color: transparent; }
+.btn.solid:hover { box-shadow: 0 0 32px rgba(207,143,87,.55), 0 0 0 1px var(--bronze); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* nav */
+.nav { position: fixed; inset: 0 0 auto; z-index: 50; padding-top: env(safe-area-inset-top, 0px); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.nav.scrolled { background: rgba(0,0,0,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
+.nav .wrap { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.nav .logo { font-size: 34px; }
+.nav-links { display: flex; gap: clamp(16px, 2.2vw, 32px); }
+.nav-links a { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #c9cdd4; position: relative; padding: 6px 0; }
+.nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--ice); transition: right .25s; }
+.nav-links a:hover { color: #fff; } .nav-links a:hover::after { right: 0; }
+.nav .btn { min-height: 42px; padding: 0 18px; font-size: 12px; }
+.burger { display: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: transparent; cursor: pointer; place-content: center; gap: 6px; padding: 0; }
+.burger i { display: block; width: 20px; height: 1.6px; background: #fff; transition: transform .25s; }
+.nav.open .burger i:first-child { transform: translateY(3.8px) rotate(45deg); }
+.nav.open .burger i:last-child { transform: translateY(-3.8px) rotate(-45deg); }
+@media (max-width: 920px) {
+  .nav-links, .nav .btn.book { display: none; }
+  .burger { display: grid; }
+  .nav.open { background: #000; }
+  .nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; padding: 8px var(--gutter) 24px; background: #000; border-bottom: 1px solid var(--line); }
+  .nav.open .nav-links a { font-family: var(--font-display); font-size: 26px; letter-spacing: 0; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .nav.open .nav-links a.m-book { color: var(--ice); border-bottom: 0; }
+}
+.nav-links .m-book { display: none; }
+@media (max-width: 920px) { .nav-links .m-book { display: block; } }
+
+/* hero */
+.hero { position: relative; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: calc(var(--nav-h) + 40px) var(--gutter) 64px; overflow: hidden; }
+.hero video, .hero .hero-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero .hero-blur { filter: blur(28px) brightness(.6) saturate(1.3); transform: scale(1.2); }
+.hero .hero-sharp { width: auto; max-width: none; height: 100%; left: 50%; transform: translateX(-50%); -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); }
+@media (max-width: 700px) { .hero .hero-sharp { -webkit-mask-image: none; mask-image: none; } }
+.hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,.25), rgba(0,0,0,.82) 70%), linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.15) 40%, #000 100%); }
+.hero-inner { position: relative; z-index: 2; display: grid; justify-items: center; gap: 26px; }
+.hero .logo { font-size: clamp(110px, 24vw, 330px); }
+.hero .logo .s1 { top: .14em; left: -.06em; } .hero .logo .s2 { top: .5em; right: -.08em; animation-delay: 1.1s; } .hero .logo .s3 { bottom: .02em; left: 42%; animation-delay: 2.2s; width: .08em; height: .08em; }
+.hero .tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 2vw, 24px); line-height: 1.35; max-width: 30ch; color: #f2f4f7; }
+.hero .tagline em { font-style: normal; color: var(--ice); }
+.hero .where { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+.hero .where b { color: var(--bronze); font-weight: 600; }
+.say { font-size: 13px; color: var(--dim); }
+.scroll-cue { position: absolute; z-index: 2; bottom: 22px; left: 50%; transform: translateX(-50%); width: 1px; height: 46px; background: linear-gradient(var(--ice), transparent); animation: cue 2.2s ease-in-out infinite; }
+@keyframes cue { 0%, 100% { opacity: .2; transform: translate(-50%, -6px); } 50% { opacity: 1; transform: translate(-50%, 4px); } }
+
+/* story */
+.story { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+.story .photo { position: relative; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; background: var(--bg-2); max-width: 100%; }
+.story .photo img { width: 100%; height: 100%; object-fit: cover; }
+.story .photo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.55)); }
+.story .photo span { position: absolute; z-index: 1; left: 18px; bottom: 16px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4d8de; }
+.story-copy { display: grid; gap: 22px; min-width: 0; }
+.story-copy p { color: #c8ccd3; max-width: 62ch; }
+.story-copy p.big { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.22; color: #fff; }
+.story-copy p.big em { font-style: normal; color: var(--ice); }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 8px; }
+.facts div { padding: 18px 16px 0 0; }
+.facts b { display: block; font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); color: var(--chrome); }
+.facts span { font-size: 13px; color: var(--dim); }
+.bio { border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; background: var(--bg-2); }
+.bio summary { cursor: pointer; font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--chrome); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.bio summary::-webkit-details-marker { display: none; }
+.bio summary::after { content: "+"; color: var(--ice); font-size: 18px; line-height: 1; }
+.bio[open] summary::after { content: "–"; }
+.bio p { margin-top: 12px; font-size: 15.5px; }
+.bio .copy { margin-top: 12px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; background: none; border: 1px solid var(--line); border-radius: 99px; padding: 8px 14px; cursor: pointer; color: var(--dim); }
+.bio .copy:hover { color: #fff; border-color: var(--ice); }
+@media (max-width: 860px) { .story { grid-template-columns: 1fr; } .story .photo { aspect-ratio: 4 / 5; } }
+
+/* sound */
+.sound-head { display: grid; gap: 22px; margin-bottom: clamp(40px, 6vw, 80px); }
+.speciality { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 3vw, 40px); line-height: 1.2; max-width: 26ch; }
+.speciality em { font-style: normal; color: var(--bronze); }
+.roles { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px); }
+.role { border-top: 1px solid var(--line); padding-top: 22px; min-width: 0; }
+.role h3 { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; letter-spacing: -.01em; }
+.role h3 small { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--dim); }
+.role p { color: var(--dim); font-size: 15px; margin-bottom: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { padding: 10px 16px; border-radius: 999px; border: 1px solid #2a2d33; font-family: var(--font-display); font-size: clamp(13px, 1.2vw, 16px); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: #d5d9df; transition: color .2s, border-color .2s, box-shadow .2s, background .2s; cursor: default; }
+.chip:hover { color: #000; background: var(--ice); border-color: var(--ice); box-shadow: 0 0 24px rgba(143,227,255,.45); }
+.role.dj .chip:hover { background: var(--bronze); border-color: var(--bronze); box-shadow: 0 0 24px rgba(207,143,87,.5); }
+@media (max-width: 760px) { .roles { grid-template-columns: 1fr; } }
+.marquee { margin-top: clamp(60px, 8vw, 110px); overflow: hidden; border-block: 1px solid var(--line); padding-block: 22px; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-track { display: flex; gap: 48px; width: max-content; animation: marquee 38s linear infinite; font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 6vw, 80px); text-transform: uppercase; white-space: nowrap; }
+.marquee-track span:nth-child(3n+1) { color: transparent; -webkit-text-stroke: 1px #6b727c; }
+.marquee-track span:nth-child(3n+2) { color: var(--chrome); }
+.marquee-track span:nth-child(3n) { color: var(--ice); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* featured video */
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.player { position: relative; justify-self: center; width: min(420px, 100%); aspect-ratio: 9 / 16; border-radius: 26px; overflow: hidden; background: #050607; box-shadow: 0 0 0 1px rgba(255,255,255,.1), 0 30px 80px -30px rgba(143,227,255,.35); }
+.player video { width: 100%; height: 100%; object-fit: cover; }
+.player .play { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.6)); border: 0; cursor: pointer; transition: opacity .25s; }
+.player .play span { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.92); box-shadow: 0 0 40px rgba(143,227,255,.5); transition: transform .2s; }
+.player .play:hover span { transform: scale(1.06); }
+.player .play svg { width: 30px; height: 30px; margin-left: 4px; fill: #000; }
+.player.playing .play { opacity: 0; pointer-events: none; }
+.player .cap { position: absolute; left: 18px; right: 18px; bottom: 16px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #e1e5ea; pointer-events: none; }
+.feature-copy { display: grid; gap: 22px; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
+
+/* live */
+.live-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); margin-top: clamp(40px, 6vw, 72px); }
+.event { position: relative; border-radius: 22px; overflow: hidden; background: var(--bg-2); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform .3s, border-color .3s, box-shadow .3s; }
+.event:hover { transform: translateY(-4px); border-color: #2f3640; box-shadow: 0 24px 60px -30px rgba(143,227,255,.35); }
+.event .media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #050607; cursor: pointer; }
+.event .media img, .event .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s, opacity .4s; }
+.event .media video { opacity: 0; }
+.event:hover .media video, .event.touch-play .media video { opacity: 1; }
+.event:hover .media img { transform: scale(1.04); }
+.event .badge { position: absolute; z-index: 2; top: 14px; left: 14px; padding: 6px 11px; border-radius: 99px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ice); }
+.event .badge.b { color: var(--bronze); }
+.event .info { padding: 20px 22px 24px; display: grid; gap: 6px; }
+.event .venue { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.event p.note { color: #c8ccd3; font-size: 15px; }
+.event .media.empty { display: grid; place-items: center; background: radial-gradient(circle at 30% 20%, rgba(207,143,87,.25), transparent 55%), radial-gradient(circle at 80% 90%, rgba(143,227,255,.18), transparent 50%), #07080a; }
+.event .media.empty b { font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 5vw, 64px); color: transparent; -webkit-text-stroke: 1px #59606a; text-transform: uppercase; text-align: center; line-height: .95; }
+.event .media.empty small { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #5b616b; }
+@media (max-width: 980px) { .live-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .live-grid { grid-template-columns: 1fr; } .event .media { aspect-ratio: 4 / 4.2; } }
+
+/* gallery */
+.masonry { columns: 3 260px; column-gap: 14px; margin-top: clamp(40px, 6vw, 72px); }
+.tile { position: relative; break-inside: avoid; margin: 0 0 14px; border-radius: 18px; overflow: hidden; background: var(--bg-2); cursor: zoom-in; border: 0; padding: 0; width: 100%; display: block; }
+.tile img, .tile video { width: 100%; height: auto; transition: transform .6s, filter .4s; }
+.tile:hover img, .tile:hover video { transform: scale(1.03); filter: brightness(1.1); }
+.tile .tag { position: absolute; left: 12px; bottom: 12px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 5px 10px; border-radius: 99px; background: rgba(0,0,0,.6); color: #e2e6eb; }
+.tile .vid { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,.6); display: grid; place-items: center; }
+.tile .vid svg { width: 12px; height: 12px; fill: #fff; margin-left: 2px; }
+.lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,.94); display: grid; place-items: center; padding: calc(env(safe-area-inset-top, 0px) + 56px) 16px calc(env(safe-area-inset-bottom, 0px) + 56px); }
+.lightbox[hidden] { display: none; }
+.lightbox .stage { max-width: min(1100px, 100%); max-height: 100%; display: grid; place-items: center; }
+.lightbox .stage img, .lightbox .stage video { max-height: calc(100svh - 140px); width: auto; max-width: 100%; border-radius: 14px; }
+.lightbox .cap { margin-top: 12px; font-size: 13px; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; text-align: center; }
+.lightbox button { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #2a2d33; background: rgba(0,0,0,.6); cursor: pointer; font-size: 20px; display: grid; place-items: center; }
+.lightbox button:hover { border-color: var(--ice); }
+.lightbox .x { top: calc(env(safe-area-inset-top, 0px) + 14px); right: 14px; }
+.lightbox .prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox .next { right: 14px; top: 50%; transform: translateY(-50%); }
+
+
+/* music */
+.music { padding-top: clamp(72px, 10vw, 130px); }
+.music-head { display: grid; gap: 18px; margin-bottom: clamp(32px, 5vw, 56px); }
+.music-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(14px, 2vw, 24px); align-items: start; }
+.deck { border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(180deg, #0d0e11, #060708); padding: clamp(16px, 2vw, 22px); display: grid; gap: 14px; min-width: 0; }
+.deck-top { display: flex; align-items: center; gap: 14px; }
+.deck-top > div { flex: 1; min-width: 0; }
+.deck-top small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.deck-top b { display: block; font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-logo { width: 40px; height: 40px; fill: #1ed760; flex: none; }
+.eq { display: flex; align-items: flex-end; gap: 3px; width: 40px; height: 40px; padding: 8px; border-radius: 12px; background: rgba(143,227,255,.1); flex: none; }
+.eq i { flex: 1; height: 30%; border-radius: 2px; background: var(--ice); }
+.music.live .eq i { animation: eq 1s ease-in-out infinite; }
+.music.live .eq i:nth-child(2) { animation-delay: -.3s; } .music.live .eq i:nth-child(3) { animation-delay: -.6s; } .music.live .eq i:nth-child(4) { animation-delay: -.15s; }
+@keyframes eq { 0%, 100% { height: 25%; } 50% { height: 100%; } }
+.frame { position: relative; border-radius: 16px; overflow: hidden; background: #0a0b0d; border: 1px solid #191b1f; }
+.frame.sc { height: 166px; }
+.frame.spf { height: 352px; }
+.frame iframe { position: relative; z-index: 1; display: block; width: 100%; height: 100%; border: 0; background: transparent; }
+.frame-ph { position: absolute; inset: 0; display: grid; place-content: center; gap: 6px; text-align: center; padding: 16px; font-size: 14px; color: var(--dim); }
+.frame-ph a { color: var(--ice); font-weight: 700; }
+.tracks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.tracks button, .tracks a.trk { width: 100%; display: grid; grid-template-columns: 34px 1fr 40px; align-items: center; gap: 10px; padding: 12px 12px 12px 14px; border-radius: 14px; border: 1px solid transparent; background: rgba(255,255,255,.03); cursor: pointer; text-align: left; transition: background .2s, border-color .2s; }
+.tracks a.trk:hover, .tracks button:hover { background: rgba(143,227,255,.07); border-color: rgba(143,227,255,.25); }
+.tracks button.on { background: rgba(143,227,255,.1); border-color: var(--ice); }
+.tracks .n { font-family: var(--font-display); font-size: 13px; color: var(--dim); }
+.tracks .t { font-family: var(--font-display); font-weight: 600; font-size: clamp(15px, 1.4vw, 18px); }
+.tracks .pp { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #fff; transition: transform .2s, box-shadow .2s; }
+.tracks a.trk:hover .pp, .tracks button:hover .pp, .tracks button.on .pp { transform: scale(1.06); box-shadow: 0 0 18px rgba(143,227,255,.6); }
+.tracks .pp svg { width: 13px; height: 13px; fill: #000; margin-left: 2px; }
+.tracks button.playing .pp svg { display: none; }
+.tracks button.playing .pp::before { content: ""; width: 11px; height: 12px; border-inline: 3.5px solid #000; box-sizing: border-box; }
+.all { justify-self: start; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ice); padding: 4px 0; }
+.more { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.plat-mini { position: relative; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,.03); transition: border-color .2s, box-shadow .2s; }
+.plat-mini:hover { border-color: var(--bronze); box-shadow: 0 0 22px -6px var(--bronze); }
+.plat-mini b { display: block; font-family: var(--font-display); font-size: 17px; }
+.plat-mini span { font-size: 13px; color: var(--dim); }
+.plat-mini em { position: absolute; top: 14px; right: 16px; font-style: normal; color: var(--dim); }
+@media (max-width: 900px) { .music-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .music.live .eq i { animation: none; height: 70%; } }
+
+/* platforms */
+.plat-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: clamp(40px, 6vw, 72px); }
+.plat { position: relative; display: grid; align-content: space-between; gap: 34px; min-height: 180px; padding: 22px; border-radius: 22px; background: var(--bg-2); border: 1px solid var(--line); overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; }
+.plat::before { content: ""; position: absolute; inset: auto -30% -60% auto; width: 180px; height: 180px; border-radius: 50%; background: var(--c, var(--ice)); opacity: .14; filter: blur(30px); transition: opacity .3s; }
+.plat:hover { transform: translateY(-4px); border-color: var(--c, var(--ice)); box-shadow: 0 0 34px -6px var(--c, var(--ice)); }
+.plat:hover::before { opacity: .35; }
+.plat svg { width: 34px; height: 34px; fill: var(--c, #fff); position: relative; }
+.plat b { display: block; font-family: var(--font-display); font-size: 20px; font-weight: 800; position: relative; }
+.plat span { font-size: 13px; color: var(--dim); position: relative; overflow-wrap: anywhere; }
+.plat em { position: absolute; top: 20px; right: 20px; font-style: normal; color: var(--dim); transition: transform .2s, color .2s; }
+.plat:hover em { color: #fff; transform: translate(2px, -2px); }
+@media (max-width: 1000px) { .plat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .plat-grid { grid-template-columns: 1fr 1fr; } .plat { min-height: 150px; } .plat:first-child { grid-column: 1 / -1; } }
+.spotify { margin-top: 18px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
+.spotify iframe { display: block; width: 100%; height: 352px; border: 0; }
+.spotify .ph { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 24px; }
+.spotify .ph p { color: var(--dim); font-size: 15px; }
+
+/* dhwani */
+.dhwani { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+.dhwani .slot { position: relative; aspect-ratio: 4 / 3; border-radius: 22px; overflow: hidden; border: 1px dashed #2a2d33; display: grid; place-items: center; background: radial-gradient(circle at 20% 30%, rgba(207,143,87,.22), transparent 55%), radial-gradient(circle at 85% 75%, rgba(143,227,255,.16), transparent 50%), #060708; }
+.dhwani .slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dhwani .slot b { font-family: var(--font-display); font-weight: 800; font-size: clamp(48px, 6.4vw, 96px); color: transparent; -webkit-text-stroke: 1px #4c535c; letter-spacing: -.02em; }
+.dhwani .slot small { position: absolute; bottom: 14px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #5b616b; }
+.dhwani-copy { display: grid; gap: 20px; }
+.dhwani-copy .count { display: flex; gap: 28px; }
+.dhwani-copy .count b { display: block; font-family: var(--font-display); font-size: 38px; color: var(--bronze); }
+.dhwani-copy .count span { font-size: 13px; color: var(--dim); }
+.reel { justify-self: center; width: min(420px, 100%); display: grid; gap: 10px; }
+.reel iframe { width: 100%; height: 720px; border: 0; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 80px -30px rgba(207,143,87,.45); }
+.reel-link { justify-self: center; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--bronze); }
+.reel-card { position: relative; aspect-ratio: 9 / 14; border-radius: 22px; overflow: hidden; display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; border: 1px solid #2a2d33; background: radial-gradient(circle at 25% 20%, rgba(207,143,87,.35), transparent 55%), radial-gradient(circle at 80% 85%, rgba(255,95,162,.25), transparent 55%), #07080a; transition: border-color .25s, box-shadow .25s; }
+.reel-card:hover { border-color: var(--bronze); box-shadow: 0 0 40px -8px rgba(207,143,87,.6); }
+.reel-card .rp { width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; background: #fff; box-shadow: 0 0 34px rgba(207,143,87,.55); }
+.reel-card .rp svg { width: 26px; height: 26px; fill: #000; margin-left: 4px; }
+.reel-card b { font-family: var(--font-display); font-size: 22px; }
+.reel-card small { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze); }
+@media (max-width: 860px) { .dhwani { grid-template-columns: 1fr; } .dhwani .slot, .reel { order: 2; } .reel iframe { height: 640px; } }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.contact h2 { font-size: clamp(42px, 5.6vw, 84px); }
+.contact h2 em { font-style: normal; color: var(--ice); }
+.reach { display: grid; gap: 12px; margin-top: 32px; }
+.reach .row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--line); background: var(--bg-2); }
+.reach .row small { display: block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.reach .row b { font-family: var(--font-display); font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; user-select: all; }
+.reach .row .acts { display: flex; gap: 8px; }
+.mini { min-height: 40px; padding: 0 14px; border-radius: 99px; border: 1px solid #2a2d33; background: transparent; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; transition: border-color .2s, color .2s; }
+.mini:hover { border-color: var(--ice); color: var(--ice); }
+form.book { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: clamp(20px, 3vw, 32px); border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(180deg, #0c0d10, #070809); }
+form.book .full { grid-column: 1 / -1; }
+form.book label { display: grid; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+form.book input, form.book select, form.book textarea { width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 14px; border: 1px solid #23262b; background: #000; color: #fff; font-size: 16px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+form.book textarea { min-height: 120px; resize: vertical; }
+form.book input:focus, form.book select:focus, form.book textarea:focus { outline: none; border-color: var(--ice); box-shadow: 0 0 0 3px rgba(143,227,255,.18); }
+form.book .btn { justify-self: start; }
+.sent { grid-column: 1 / -1; padding: 16px 18px; border-radius: 14px; border: 1px solid rgba(143,227,255,.35); background: rgba(143,227,255,.06); font-size: 15px; color: #dff6ff; }
+.sent a { color: var(--ice); text-decoration: underline; }
+@media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { form.book { grid-template-columns: 1fr; } }
+
+/* footer */
+footer { border-top: 1px solid var(--line); padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+footer .logo { font-size: 44px; }
+.socials { display: flex; gap: 10px; }
+.socials a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: border-color .2s, box-shadow .2s; }
+.socials a:hover { border-color: var(--ice); box-shadow: 0 0 18px rgba(143,227,255,.35); }
+.socials svg { width: 18px; height: 18px; fill: #d5d9df; }
+footer small { color: var(--dim); font-size: 13px; }
+
+/* reveal: only what starts below the first screen waits to fade in */
+.rv { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.rv.pre:not(.in) { opacity: 0; transform: translateY(24px); }
+@media (prefers-reduced-motion: reduce) { .rv { transition: none; } .rv.pre:not(.in) { opacity: 1; transform: none; } }
+
+/* ---------- alignment pass ---------- */
+/* every section head: kicker, then heading, same spacing everywhere */
+.kicker + h2 { margin-top: 18px; }
+h2[style*="margin-top:18px"] { margin-top: 18px !important; }
+/* music: both decks the same height, players fill the space */
+.music-grid { align-items: stretch; }
+.deck { grid-template-rows: auto 1fr; align-content: start; }
+.deck .frame.spf { height: auto; min-height: 352px; }
+.deck:last-child { grid-template-rows: auto 1fr auto; }
+/* story: photo pinned to the top of the text, stays in view while reading */
+.story { align-items: start; }
+.story .photo { position: sticky; top: calc(var(--nav-h) + 24px); }
+/* sound: heading left, statement right on wide screens */
+@media (min-width: 900px) {
+  .sound-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; column-gap: clamp(32px, 6vw, 96px); }
+  .sound-head .kicker { grid-column: 1 / -1; }
+  .sound-head .speciality { justify-self: end; max-width: 22ch; }
+}
+.role h3 { align-items: center; }
+/* featured video and dhwani: text and media share one centre line, media flush to the right edge */
+.feature, .dhwani { align-items: center; }
+.player, .reel { justify-self: end; }
+.reel-link { justify-self: center; }
+/* contact: heading block and form start on the same line */
+.contact { align-items: start; }
+form.book { margin-top: 0; }
+@media (max-width: 900px) { .contact form.book { margin-top: 8px; } }
+@media (max-width: 860px) {
+  .story .photo { position: relative; top: 0; }
+  .player, .reel { justify-self: center; }
+}
+/* footer: logo, icons, copyright on one baseline */
+footer .wrap { align-items: center; }
+@media (max-width: 640px) { footer .wrap { flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Rxhxt, back to top"><span class="word">rxhxt</span></a>
+    <div class="nav-links">
+      <a href="#music">Music</a><a href="#story">Story</a><a href="#sound">Sound</a><a href="#live">Live</a><a href="#gallery">Gallery</a><a href="#dhwani">Dhwani</a><a href="#contact">Contact</a><a href="#contact" class="m-book">Book Me →</a>
+    </div>
+    <a href="#contact" class="btn solid book">Book Me</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</nav>
+
+<main>
+<!-- ============ HERO (swap: hero video + poster) ============ -->
+<header class="hero" id="top">
+  <img class="hero-poster hero-blur" src="media/medai-floor-poster.jpg" alt="" aria-hidden="true">
+  <video class="hero-blur" data-hero-bg autoplay muted loop playsinline preload="metadata" poster="media/medai-floor-poster.jpg" aria-hidden="true"><source src="media/medai-floor.mp4" type="video/mp4"></video>
+  <video class="hero-sharp" data-hero autoplay muted loop playsinline preload="metadata" poster="media/medai-floor-poster.jpg" aria-hidden="true"><source src="media/medai-floor.mp4" type="video/mp4"></video>
+  <div class="hero-inner">
+    <span class="where"><b>●</b> Coimbatore, India</span>
+    <h1 class="logo" aria-label="Rxhxt"><span class="word shimmer">rxhxt</span><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i></h1>
+    <p class="say" data-config="pronounce" hidden></p>
+    <p class="tagline">Sounds you don't hear every day. <em>Sounds you never forget.</em></p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn solid" href="#music">Listen Now</a>
+      <a class="btn" href="#contact">Book Me</a>
+    </div>
+  </div>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</header>
+
+<!-- ============ MUSIC (the most important section) ============ -->
+<section id="music" class="music">
+  <div class="wrap">
+    <div class="music-head rv">
+      <span class="kicker">Music</span>
+      <h2>Hear it <span class="chrome-text">first.</span></h2>
+      <p class="lede">Beats and records I produced. Pick a track and press play.</p>
+    </div>
+    <div class="music-grid">
+      <div class="deck rv">
+        <div class="deck-top"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><small>Now playing · SoundCloud</small><b data-np>Recognition</b></div><a class="mini" data-np-link href="https://soundcloud.com/rxhxt/recognition-mp3" target="_blank" rel="noopener">Open ↗</a></div>
+        <div class="frame sc"><div class="frame-ph">The SoundCloud player loads here.<br><a href="https://soundcloud.com/rxhxt" target="_blank" rel="noopener">Listen on SoundCloud ↗</a></div><iframe data-sc title="Rxhxt on SoundCloud" allow="autoplay" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Frxhxt%2Frecognition-mp3&amp;color=%238fe3ff&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=false&amp;visual=false"></iframe></div>
+        <ol class="tracks" data-tracks></ol>
+        <a class="all" href="https://soundcloud.com/rxhxt" target="_blank" rel="noopener">All tracks on SoundCloud ↗</a>
+      </div>
+      <div class="deck rv">
+        <div class="deck-top"><svg class="sp-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21Zm4.8 15.1a.65.65 0 0 1-.9.22c-2.47-1.5-5.58-1.85-9.24-1.01a.65.65 0 1 1-.29-1.27c4-.92 7.44-.52 10.2 1.16.31.19.41.59.23.9Zm1.28-2.85a.82.82 0 0 1-1.13.27c-2.83-1.74-7.14-2.24-10.48-1.23a.82.82 0 1 1-.48-1.57c3.82-1.16 8.57-.6 11.82 1.4.38.24.5.75.27 1.13Zm.11-2.97C14.8 8.76 9.2 8.57 5.97 9.55a.98.98 0 1 1-.57-1.88c3.71-1.13 9.9-.91 13.8 1.4a.98.98 0 1 1-1.01 1.68Z"/></svg><div><small>Out now on Spotify</small><b data-sp-title>Favela</b></div><a class="mini" href="https://open.spotify.com/artist/2fJDFRlcVYPdxXZPsMbbXH" target="_blank" rel="noopener">Follow ↗</a></div>
+        <div class="frame spf"><div class="frame-ph">The Spotify player loads here.<br><a href="https://open.spotify.com/artist/2fJDFRlcVYPdxXZPsMbbXH" target="_blank" rel="noopener">Listen on Spotify ↗</a></div><iframe data-spotify-frame title="Rxhxt on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" src="https://open.spotify.com/embed/artist/2fJDFRlcVYPdxXZPsMbbXH?utm_source=generator&amp;theme=0"></iframe></div>
+        <div class="more">
+          <a class="plat-mini" href="https://www.bandlab.com/prod_rxhxt" target="_blank" rel="noopener"><b>BandLab</b><span>prod_rxhxt</span><em>↗</em></a>
+          <a class="plat-mini" href="https://www.youtube.com/@prod_rxhxt" target="_blank" rel="noopener"><b>YouTube</b><span>@prod_rxhxt</span><em>↗</em></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY (swap: portrait photo) ============ -->
+<section id="story">
+  <div class="wrap story">
+    <figure class="photo rv" style="margin:0"><img src="media/portrait-bmw.jpg" width="960" height="1280" alt="Rxhxt standing in a tie-dye jersey and bandana in front of a white BMW and a superbike at night" loading="lazy"><span>Rxhxt · Coimbatore</span></figure>
+    <div class="story-copy rv">
+      <span class="kicker">Story</span>
+      <h2>From a carnival stall to <span class="chrome-text">Red Bull.</span></h2>
+      <p class="big">I started making music at 13, on Christmas, for a Christmas video. I make the sounds people don't often hear, and the kind of music people <em>remember me by.</em></p>
+      <p>That first song was made in Soundation, a browser studio. Then came FL Studio, and today I produce for artists across Coimbatore.</p>
+      <p>I started DJing in high school, in 2024, on a school-carnival DJ floor I ran with friends. Ideas for mixes and transitions kept coming to me while producing, so I moved to Virtual DJ. Then came a Halloween party at Medai The Stage, and Red Bull's FOUR 2 SCORE, where everything changed. The best part of any set is the look on people's faces.</p>
+      <div class="facts">
+        <div><b>13</b><span>age I started producing</span></div>
+        <div><b>2024</b><span>first DJ floor, school carnival</span></div>
+        <div><b>15</b><span>members in Dhwani, my band</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOUND ============ -->
+<section id="sound" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sound-head rv">
+      <span class="kicker">Sound</span>
+      <h2>Two jobs.<br><span class="chrome-text">One ear.</span></h2>
+      <p class="speciality">Open format, built on <em>techno, schranz and trance</em>, with room for everything from baile funk to Tamil.</p>
+    </div>
+    <div class="roles">
+      <div class="role rv">
+        <h3>Producer <small>in the studio</small></h3>
+        <p>FL Studio. Beats and records for artists across Coimbatore.</p>
+        <div class="chips"><span class="chip">Hip hop</span><span class="chip">Trap</span><span class="chip">Drill</span><span class="chip">Jerk</span><span class="chip">Phonk</span><span class="chip">Slap house</span><span class="chip">Reggaeton</span><span class="chip">Techno</span><span class="chip">Boom bap</span></div>
+      </div>
+      <div class="role dj rv">
+        <h3>DJ <small>on the floor</small></h3>
+        <p>Open format. Mainly techno, schranz and trance, plus commercial pop and Tamil and Bollywood when the room wants it.</p>
+        <div class="chips"><span class="chip">Techno</span><span class="chip">Schranz</span><span class="chip">Trance</span><span class="chip">Baile funk</span><span class="chip">Afro</span><span class="chip">Slap house</span><span class="chip">House</span><span class="chip">Hip hop</span><span class="chip">Trap</span><span class="chip">Reggaeton</span><span class="chip">R&amp;B</span><span class="chip">Tamil &amp; Bollywood</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Techno</span><span>Schranz</span><span>Trance</span><span>Baile funk</span><span>Phonk</span><span>Drill</span><span>Afro</span><span>Slap house</span><span>Tamil</span>
+    <span>Techno</span><span>Schranz</span><span>Trance</span><span>Baile funk</span><span>Phonk</span><span>Drill</span><span>Afro</span><span>Slap house</span><span>Tamil</span>
+  </div></div>
+</section>
+
+<!-- ============ FEATURED VIDEO (swap: showreel) ============ -->
+<section id="reel">
+  <div class="wrap feature">
+    <div class="feature-copy rv">
+      <span class="kicker">Live set</span>
+      <h2>Watch the <span class="chrome-text">room move.</span></h2>
+      <p class="lede">The crowd at Red Bull's FOUR 2 SCORE, from the booth. A full showreel is on the way.</p>
+      <div class="btns"><a class="btn" href="#live">See the gigs</a></div>
+    </div>
+    <div class="player rv" data-player>
+      <video playsinline loop preload="metadata" poster="media/redbull-crowd-poster.jpg"><source src="media/redbull-crowd.mp4" type="video/mp4"></video>
+      <button class="play" type="button" aria-label="Play the live set clip"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+      <span class="cap">Red Bull FOUR 2 SCORE · crowd</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVE (swap: card photos/clips) ============ -->
+<section id="live">
+  <div class="wrap">
+    <div class="rv"><span class="kicker">Live</span><h2 style="margin-top:18px">Rooms I've <span class="chrome-text">moved.</span></h2></div>
+    <div class="live-grid">
+      <article class="event rv">
+        <div class="media" data-open="2"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt in front of the Red Bull van at FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull</span></div>
+        <div class="info"><span class="venue">Red Bull · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull booth. Where everything changed.</p></div>
+      </article>
+      <article class="event rv">
+        <div class="media" data-open="5"><img src="media/medai-halloween.jpg" width="1280" height="960" alt="A DJ in a masked costume under a single warm spotlight at the Medai The Stage Halloween party" loading="lazy" style="object-position:66% 50%"><video muted loop playsinline preload="none" poster="media/medai-floor-poster.jpg"><source src="media/medai-floor.mp4" type="video/mp4"></video><span class="badge b">Halloween 2025</span></div>
+        <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in purple light, all night.</p></div>
+      </article>
+      <article class="event rv">
+        <div class="media empty"><b>Dhwani<br>live</b><small>photo coming soon</small><span class="badge">With Dhwani</span></div>
+        <div class="info"><span class="venue">Red Door Cafe · Saibaba Colony</span><h3>Red Door Cafe</h3><p class="note">April 2026, live with my 15-piece band, Dhwani. <a href="https://www.instagram.com/dhwanii.____/" target="_blank" rel="noopener" style="color:var(--ice)">@dhwanii.____ ↗</a></p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY (swap: photos + clips) ============ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="rv"><span class="kicker">Gallery</span><h2 style="margin-top:18px">From the <span class="chrome-text">booth.</span></h2></div>
+    <div class="masonry" data-gallery></div>
+  </div>
+</section>
+
+<!-- ============ PLATFORMS ============ -->
+<section id="platforms">
+  <div class="wrap">
+    <div class="rv"><span class="kicker">Listen</span><h2 style="margin-top:18px">Press <span class="chrome-text">play.</span></h2></div>
+    <div class="plat-grid" data-platforms></div>
+  </div>
+</section>
+
+<!-- ============ DHWANI (swap: band photo) ============ -->
+<section id="dhwani">
+  <div class="wrap dhwani">
+    <div class="dhwani-copy rv">
+      <span class="kicker">Dhwani</span>
+      <h2>Fifteen people. <span class="chrome-text">One sound.</span></h2>
+      <p class="lede">I co-founded Dhwani, a 15-member band that plays live across Coimbatore. Their last show was in April 2026 at Red Door Cafe in Saibaba Colony.</p>
+      <div class="count"><div><b>15</b><span>members</span></div><div><b>2026</b><span>last show · Red Door Cafe</span></div></div>
+      <div class="btns" data-dhwani-link></div>
+    </div>
+    <div class="slot rv" data-dhwani-photo><b>dhwani</b><small>band photo coming soon</small></div>
+    <div class="reel rv" data-dhwani-reel hidden></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact">
+    <div class="rv">
+      <span class="kicker">Booking</span>
+      <h2 style="margin-top:18px">Let's make the room <em>move.</em></h2>
+      <div class="reach">
+        <div class="row"><div><small>Phone / WhatsApp</small><b data-phone>+91 93637 07023</b></div><div class="acts"><button class="mini" type="button" data-copy-phone>Copy</button><a class="mini" href="https://wa.me/919363707023" target="_blank" rel="noopener">WhatsApp</a></div></div>
+        <div class="row" data-email-row hidden><div><small>Email</small><b data-email></b></div><div class="acts"><button class="mini" type="button" data-copy-email>Copy</button></div></div>
+        <div class="row"><div><small>Instagram</small><b>@_rxhxt._</b></div><div class="acts"><a class="mini" href="https://ig.me/m/_rxhxt._" target="_blank" rel="noopener">Send a DM</a></div></div>
+      </div>
+    </div>
+    <form class="book rv" data-book>
+      <label>Name<input id="f-name" name="name" required autocomplete="name" placeholder="Your name"></label>
+      <label>Event type<select id="f-type" name="type" required><option value="">Choose one</option><option>Club night</option><option>College fest</option><option>Private party</option><option>Wedding / sangeet</option><option>Brand event</option><option>Production work</option><option>Other</option></select></label>
+      <label>Date<input id="f-date" name="date" type="date"></label>
+      <label>City<input id="f-city" name="city" placeholder="Coimbatore"></label>
+      <label class="full">Message<textarea id="f-msg" name="message" placeholder="Venue, crowd size, set length, the vibe you want"></textarea></label>
+      <button class="btn solid" type="submit">Send booking request</button>
+      <div class="sent" data-sent hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Rxhxt, back to top"><span class="word">rxhxt</span></a>
+    <div class="socials" data-socials></div>
+    <small>© 2026 Rxhxt. All rights reserved.</small>
+  </div>
+</footer>
+
+<div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Gallery viewer">
+  <button class="x" type="button" aria-label="Close">×</button>
+  <button class="prev" type="button" aria-label="Previous">‹</button>
+  <div class="stage"><div data-lb-media></div><p class="cap" data-lb-cap></p></div>
+  <button class="next" type="button" aria-label="Next">›</button>
+</div>
+
+<script>
+/* ==========================================================
+   EDIT HERE: everything you might want to change lives in CONFIG.
+   Leave a value empty ("") to hide that piece.
+   ========================================================== */
+const CONFIG = {
+  pronounce: "",                     // e.g. 'say it "ruh-hut"'
+  email: "",                         // e.g. "bookings@rxhxt.in"
+  dhwaniInstagram: "https://www.instagram.com/dhwanii.____/",
+  dhwaniReel: "https://www.instagram.com/reel/DWyuHGqx1dv/",   // shown in the Dhwani section
+  dhwaniPhoto: "",                   // e.g. "media/dhwani.jpg"
+  spotifyArtist: "https://open.spotify.com/artist/2fJDFRlcVYPdxXZPsMbbXH",
+  spotifyTrack: "",                  // paste Favela's song link here (Spotify → Share → Copy song link) to show just that song
+  spotifyTrackTitle: "Favela",
+  /* SoundCloud tracks for the player. Add new uploads at the top. */
+  tracks: [
+    { title: "Recognition", url: "https://soundcloud.com/rxhxt/recognition-mp3" },
+    { title: "Favela", url: "https://soundcloud.com/rxhxt/favela" },
+    { title: "Stardust", url: "https://soundcloud.com/rxhxt/stardust-wav" },
+    { title: "Reaver Drill", url: "https://soundcloud.com/rxhxt/reaver-drill-rxhxt-wav" },
+    { title: "Bones To Pick", url: "https://soundcloud.com/rxhxt/bones-to-pick-rxhxt-mp3" },
+  ],
+  platforms: [
+    { name: "Spotify", handle: "Rxhxt", url: "https://open.spotify.com/artist/2fJDFRlcVYPdxXZPsMbbXH", color: "#1ed760", icon: "spotify" },
+    { name: "SoundCloud", handle: "rxhxt", url: "https://soundcloud.com/rxhxt", color: "#ff7a1a", icon: "soundcloud" },
+    { name: "YouTube", handle: "@prod_rxhxt", url: "https://www.youtube.com/@prod_rxhxt", color: "#ff3b3b", icon: "youtube" },
+    { name: "BandLab", handle: "prod_rxhxt", url: "https://www.bandlab.com/prod_rxhxt", color: "#f5f5f5", icon: "bandlab" },
+    { name: "Instagram", handle: "@_rxhxt._", url: "https://www.instagram.com/_rxhxt._", color: "#ff5fa2", icon: "instagram" },
+  ],
+  gallery: [
+    { type: "image", src: "media/dj-purple.jpg", w: 719, h: 1280, alt: "Rxhxt at the decks under purple light", tag: "On the decks" },
+    { type: "video", src: "media/redbull-booth-clip.mp4", poster: "media/redbull-booth-clip-poster.jpg", w: 464, h: 832, alt: "Clip walking into the Red Bull booth to the decks", tag: "Red Bull booth" },
+    { type: "image", src: "media/redbull-booth.jpg", w: 960, h: 1280, alt: "Rxhxt throwing up a hand sign from the Red Bull DJ booth", tag: "FOUR 2 SCORE" },
+    { type: "image", src: "media/redbull-van.jpg", w: 1280, h: 591, alt: "Rxhxt in front of the Red Bull van", tag: "Red Bull" },
+    { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "The dance floor at the Medai The Stage Halloween party", tag: "Medai · Halloween" },
+    { type: "image", src: "media/medai-halloween.jpg", w: 1280, h: 960, alt: "A masked DJ under a warm spotlight at Medai The Stage", tag: "Halloween 2025" },
+    { type: "image", src: "media/portrait-bmw.jpg", w: 960, h: 1280, alt: "Rxhxt standing in front of a white BMW at night", tag: "Off stage" },
+    { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "The crowd jumping at Red Bull FOUR 2 SCORE", tag: "Red Bull crowd" },
+  ],
+};
+</script>
+<script>
+(() => {
+  const d = document, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ICONS = {
+    spotify: '<path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21Zm4.8 15.1a.65.65 0 0 1-.9.22c-2.47-1.5-5.58-1.85-9.24-1.01a.65.65 0 1 1-.29-1.27c4-.92 7.44-.52 10.2 1.16.31.19.41.59.23.9Zm1.28-2.85a.82.82 0 0 1-1.13.27c-2.83-1.74-7.14-2.24-10.48-1.23a.82.82 0 1 1-.48-1.57c3.82-1.16 8.57-.6 11.82 1.4.38.24.5.75.27 1.13Zm.11-2.97C14.8 8.76 9.2 8.57 5.97 9.55a.98.98 0 1 1-.57-1.88c3.71-1.13 9.9-.91 13.8 1.4a.98.98 0 1 1-1.01 1.68Z"/>',
+    soundcloud: '<path d="M1 14.5c0-1.1.6-2 1.5-2.2V17c-.9-.3-1.5-1.3-1.5-2.5Zm2.6-3.2c.3 0 .6.1.8.2V17h-1.6v-5.5c.2-.1.5-.2.8-.2Zm2 -.9c.3 0 .6 0 .8.1V17H5.8v-6.5c0-.1.1-.1.2-.1Zm2 -.8c.3 0 .5 0 .8.1V17H7.6V9.7l.4-.1Zm2.1-1.1c.3 0 .5 0 .8.1V17H9.7V8.6Zm1.9-.6c.2-.1.5-.1.8-.1V17h-1.6V8.1l.8-.2Zm1.3-.1A6 6 0 0 1 18.6 12c.4-.2.9-.3 1.4-.3a3.4 3.4 0 0 1 0 6.8h-7.1V7.8Z"/>',
+    youtube: '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/>',
+    bandlab: '<path d="M8.7 4h6l-5.4 9.7a3.4 3.4 0 0 0 3 5.1h5.3a7 7 0 0 1-5.4 2.2H8.4A4.4 4.4 0 0 1 4.6 14l4.1-10Zm7.7 4.2h5.4a4.4 4.4 0 0 1-.4 3.9l-3.6 6.3h-5.6l4.2-10.2Z"/>',
+    instagram: '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1ZM12 6.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2Zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6Zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/>',
+  };
+  const svg = (k) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[k] || ""}</svg>`;
+
+  /* ---------- nav ---------- */
+  const nav = d.querySelector(".nav"), burger = d.querySelector(".burger");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const setMenu = (o) => { nav.classList.toggle("open", o); burger.setAttribute("aria-expanded", String(o)); burger.setAttribute("aria-label", o ? "Close menu" : "Open menu"); };
+  burger.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+  nav.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  d.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+
+  /* ---------- config-driven bits ---------- */
+  if (CONFIG.pronounce) { const p = d.querySelector('[data-config="pronounce"]'); p.textContent = CONFIG.pronounce; p.hidden = false; }
+  if (CONFIG.email) { d.querySelector("[data-email]").textContent = CONFIG.email; d.querySelector("[data-email-row]").hidden = false; }
+  if (CONFIG.dhwaniInstagram) d.querySelector("[data-dhwani-link]").innerHTML = `<a class="btn" href="${CONFIG.dhwaniInstagram}" target="_blank" rel="noopener">${svg("instagram").replace('<svg', '<svg style="width:16px;height:16px;fill:currentColor"')} Dhwani on Instagram</a>`;
+  /* Dhwani's reel: the Instagram player on the live site, a link card inside the preview */
+  const inPreview = window.top !== window.self && /claude|anthropic/i.test(location.hostname + " " + document.referrer);
+  const rm = (CONFIG.dhwaniReel || "").match(/instagram\.com\/(reel|p)\/([A-Za-z0-9_-]+)/);
+  if (rm) {
+    const box = d.querySelector("[data-dhwani-reel]"), url = `https://www.instagram.com/${rm[1]}/${rm[2]}/`;
+    d.querySelector("[data-dhwani-photo]").hidden = true; box.hidden = false;
+    box.innerHTML = inPreview
+      ? `<a class="reel-card" href="${url}" target="_blank" rel="noopener"><span class="rp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><b>Dhwani · the reel</b><small>Watch on Instagram ↗</small></a>`
+      : `<iframe title="Dhwani reel on Instagram" src="https://www.instagram.com/${rm[1]}/${rm[2]}/embed/" allowtransparency="true" allow="encrypted-media; autoplay; clipboard-write; picture-in-picture" scrolling="no"></iframe><a class="reel-link" href="${url}" target="_blank" rel="noopener">Open the reel on Instagram ↗</a>`;
+  }
+  if (CONFIG.dhwaniPhoto && !rm) d.querySelector("[data-dhwani-photo]").innerHTML = `<img src="${CONFIG.dhwaniPhoto}" alt="Dhwani, the 15-member band, on stage" loading="lazy">`;
+  d.querySelector("[data-platforms]").innerHTML = CONFIG.platforms.map((p) => {
+    const inner = `<em>↗</em>${svg(p.icon)}<div><b>${p.name}</b><span>${p.url ? p.handle : "link coming soon"}</span></div>`;
+    return p.url ? `<a class="plat rv" style="--c:${p.color}" href="${p.url}" target="_blank" rel="noopener">${inner}</a>` : `<div class="plat rv" style="--c:${p.color};opacity:.7">${inner}</div>`;
+  }).join("");
+  /* ---------- music: SoundCloud track picker + Spotify artist player ---------- */
+  /* inside the claude.ai preview, other sites' players are blocked: show links there instead */
+  const preview = window.top !== window.self && /claude|anthropic/i.test(location.hostname + " " + document.referrer);
+  if (preview) d.querySelectorAll(".frame iframe").forEach((f) => f.remove());
+  const m = CONFIG.spotifyArtist.match(/artist\/([A-Za-z0-9]+)/);
+  const tm = (CONFIG.spotifyTrack || "").match(/track\/([A-Za-z0-9]+)/);
+  d.querySelector("[data-sp-title]").textContent = CONFIG.spotifyTrackTitle || "Rxhxt";
+  /* a song link shows that song; otherwise the artist player, whose top track is Favela */
+  if (!preview && tm) d.querySelector("[data-spotify-frame]").src = tm ? `https://open.spotify.com/embed/track/${tm[1]}?utm_source=generator&theme=0` : `https://open.spotify.com/embed/artist/${m[1]}?utm_source=generator&theme=0`;
+  const sc = d.querySelector("[data-sc]"), list = d.querySelector("[data-tracks]"), np = d.querySelector("[data-np]"), npl = d.querySelector("[data-np-link]");
+  const scSrc = (url, auto) => "https://w.soundcloud.com/player/?url=" + encodeURIComponent(url) + `&color=%238fe3ff&auto_play=${auto}&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false`;
+  list.innerHTML = CONFIG.tracks.map((t, i) => `<li><button type="button" data-t="${i}"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="t">${t.title}</span><span class="pp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button></li>`).join("");
+  if (preview) list.innerHTML = CONFIG.tracks.map((t, i) => `<li><a class="trk" href="${t.url}" target="_blank" rel="noopener"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="t">${t.title}</span><span class="pp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></a></li>`).join("");
+  /* SoundCloud Widget API: one tap on a track's play button plays it right here */
+  let tcur = 0, playing = false, widget = null, apiLoading = null;
+  const mark = () => {
+    list.querySelectorAll("button").forEach((b) => { const on = +b.dataset.t === tcur; b.classList.toggle("on", on); b.classList.toggle("playing", on && playing); b.setAttribute("aria-label", (on && playing ? "Pause " : "Play ") + CONFIG.tracks[+b.dataset.t].title); });
+    d.querySelector(".music").classList.toggle("live", playing);
+    np.textContent = CONFIG.tracks[tcur].title; npl.href = CONFIG.tracks[tcur].url;
+  };
+  const loadApi = () => apiLoading || (apiLoading = new Promise((res) => {
+    if (window.SC && SC.Widget) return res(true);
+    const s2 = d.createElement("script"); s2.src = "https://w.soundcloud.com/player/api.js"; s2.async = true;
+    s2.onload = () => res(!!(window.SC && SC.Widget)); s2.onerror = () => res(false); d.head.appendChild(s2);
+  }));
+  const bind = () => {
+    if (widget || !(window.SC && SC.Widget)) return;
+    widget = SC.Widget(sc);
+    widget.bind(SC.Widget.Events.PLAY, () => { playing = true; mark(); });
+    widget.bind(SC.Widget.Events.PAUSE, () => { playing = false; mark(); });
+    widget.bind(SC.Widget.Events.FINISH, () => { playing = false; play((tcur + 1) % CONFIG.tracks.length); });
+  };
+  const prime = () => { if (preview) return; if (!sc.src) sc.src = scSrc(CONFIG.tracks[0].url, false); loadApi().then(bind); mark(); };
+  function play(i) {
+    if (preview) return;
+    if (!sc.src) { tcur = i; sc.src = scSrc(CONFIG.tracks[i].url, true); mark(); loadApi().then(bind); return; }
+    if (widget) {
+      if (i === tcur) { playing ? widget.pause() : widget.play(); return; }
+      tcur = i; mark();
+      widget.load(CONFIG.tracks[i].url, { auto_play: true, color: "#8fe3ff", hide_related: true, show_comments: false, show_reposts: false, show_teaser: false, visual: false, callback: () => widget.play() });
+    } else { tcur = i; sc.src = scSrc(CONFIG.tracks[i].url, true); playing = true; mark(); }
+  }
+  list.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) play(+b.dataset.t); });
+  /* Recognition is loaded (paused) and ready */
+  prime();
+  d.querySelector("[data-socials]").innerHTML = CONFIG.platforms.filter((p) => p.url).map((p) => `<a href="${p.url}" target="_blank" rel="noopener" aria-label="Rxhxt on ${p.name}">${svg(p.icon)}</a>`).join("");
+
+  /* ---------- copy helpers ---------- */
+  const copy = async (text, btn) => {
+    const old = btn.textContent;
+    try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
+    catch (e) { btn.textContent = "Select the text"; }
+    setTimeout(() => (btn.textContent = old), 1800);
+  };
+  d.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", () => copy(d.querySelector(`[data-bio="${b.dataset.copy}"]`).textContent, b)));
+  d.querySelector("[data-copy-phone]").addEventListener("click", (e) => copy("+91 93637 07023", e.currentTarget));
+  const ce = d.querySelector("[data-copy-email]"); if (ce) ce.addEventListener("click", (e) => copy(CONFIG.email, e.currentTarget));
+
+  /* ---------- hero video: only the visible copy plays; poster shows if autoplay is blocked ---------- */
+  d.querySelectorAll(".hero video").forEach((v) => { const p = v.play(); if (p) p.catch(() => {}); });
+
+  /* ---------- featured player ---------- */
+  const pl = d.querySelector("[data-player]"), pv = pl.querySelector("video");
+  pl.querySelector(".play").addEventListener("click", () => { pv.muted = false; pv.controls = true; pv.play().catch(() => { pv.muted = true; pv.play().catch(() => {}); }); pl.classList.add("playing"); });
+  pv.addEventListener("pause", () => { if (pv.ended) pl.classList.remove("playing"); });
+
+  /* ---------- gallery + lightbox ---------- */
+  const G = CONFIG.gallery, gal = d.querySelector("[data-gallery]");
+  gal.innerHTML = G.map((g, i) => `<button class="tile rv" type="button" data-i="${i}" aria-label="Open: ${g.alt}">${g.type === "video"
+    ? `<video muted loop playsinline preload="none" poster="${g.poster}" width="${g.w}" height="${g.h}"><source src="${g.src}" type="video/mp4"></video><span class="vid">${'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>'}</span>`
+    : `<img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy">`}<span class="tag">${g.tag}</span></button>`).join("");
+  /* gallery clips play silently while on screen */
+  if ("IntersectionObserver" in window && !reduce) {
+    const vio = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: .35 });
+    gal.querySelectorAll("video").forEach((v) => vio.observe(v));
+  }
+  const lb = d.querySelector("[data-lightbox]"), lbm = lb.querySelector("[data-lb-media]"), lbc = lb.querySelector("[data-lb-cap]");
+  let cur = 0, lastFocus = null;
+  const show = (i) => {
+    cur = (i + G.length) % G.length; const g = G[cur];
+    lbm.innerHTML = g.type === "video" ? `<video src="${g.src}" poster="${g.poster}" controls autoplay playsinline loop></video>` : `<img src="${g.src}" alt="${g.alt}">`;
+    lbc.textContent = g.tag;
+  };
+  const open = (i, from) => { lastFocus = from; show(i); lb.hidden = false; d.body.style.overflow = "hidden"; lb.querySelector(".x").focus(); };
+  const close = () => { lb.hidden = true; lbm.innerHTML = ""; d.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); };
+  gal.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t); });
+  d.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => open(+el.dataset.open, el)));
+  lb.querySelector(".x").addEventListener("click", close);
+  lb.querySelector(".prev").addEventListener("click", () => show(cur - 1));
+  lb.querySelector(".next").addEventListener("click", () => show(cur + 1));
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  d.addEventListener("keydown", (e) => { if (lb.hidden) return; if (e.key === "Escape") close(); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
+  let tx = null; lb.addEventListener("touchstart", (e) => (tx = e.touches[0].clientX), { passive: true });
+  lb.addEventListener("touchend", (e) => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); tx = null; });
+
+  /* ---------- live cards: clip plays on hover (desktop) ---------- */
+  d.querySelectorAll(".event").forEach((c) => {
+    const v = c.querySelector("video"); if (!v) return;
+    c.addEventListener("mouseenter", () => { v.preload = "auto"; v.play().catch(() => {}); });
+    c.addEventListener("mouseleave", () => v.pause());
+  });
+
+  /* ---------- booking form: builds the message and hands it to WhatsApp ---------- */
+  const form = d.querySelector("[data-book]"), sent = form.querySelector("[data-sent]");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = new FormData(form), dt = f.get("date") ? new Date(f.get("date") + "T00:00").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "date not fixed yet";
+    const msg = `Hi Rxhxt, booking request from ${f.get("name")}.\nEvent: ${f.get("type")}\nDate: ${dt}\nCity: ${f.get("city") || "-"}\n${f.get("message") || ""}`.trim();
+    const wa = "https://wa.me/919363707023?text=" + encodeURIComponent(msg);
+    sent.hidden = false;
+    sent.innerHTML = `Your request is ready. <a href="${wa}" target="_blank" rel="noopener">Send it on WhatsApp</a> to +91 93637 07023${CONFIG.email ? `, or email it to ${CONFIG.email}` : ""}.`;
+  });
+
+  /* ---------- reveal on scroll (only for things below the first screen) ---------- */
+  const rv = [...d.querySelectorAll(".rv")];
+  if ("IntersectionObserver" in window && !reduce) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    rv.forEach((el) => { if (el.getBoundingClientRect().top > innerHeight * .92) { el.classList.add("pre"); io.observe(el); } });
+  }
+})();
+</script>
+
+</body>
+</html>
