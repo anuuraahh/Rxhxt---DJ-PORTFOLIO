@@ -370,6 +370,16 @@ form.book { margin-top: 0; }
 /* footer: logo, icons, copyright on one baseline */
 footer .wrap { align-items: center; }
 @media (max-width: 640px) { footer .wrap { flex-direction: column; align-items: flex-start; } }
+
+/* Dhwani photo */
+.dhwani .slot.has-photo { aspect-ratio: 9 / 13; width: min(440px, 100%); justify-self: end; border: 1px solid #23262b; }
+.dhwani .slot.has-photo img { object-position: 50% 45%; }
+.dhwani .slot.has-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.75)); pointer-events: none; }
+.reel-btn { position: absolute; z-index: 2; left: 50%; bottom: 22px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 99px; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.25); font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; transition: border-color .2s, box-shadow .2s; }
+.reel-btn:hover { border-color: var(--bronze); box-shadow: 0 0 28px rgba(207,143,87,.5); }
+.reel-btn span { width: 40px; height: 40px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.reel-btn svg { width: 14px; height: 14px; fill: #000; margin-left: 2px; }
+@media (max-width: 860px) { .dhwani .slot.has-photo { justify-self: center; } }
 </style>
 </head>
 <body>
@@ -510,7 +520,7 @@ footer .wrap { align-items: center; }
         <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in purple light, all night.</p></div>
       </article>
       <article class="event rv">
-        <div class="media empty"><b>Dhwani<br>live</b><small>photo coming soon</small><span class="badge">With Dhwani</span></div>
+        <div class="media"><img src="media/dhwani.jpg" width="576" height="1024" alt="Dhwani band members together in a lift" loading="lazy" style="object-position:50% 40%"><span class="badge">With Dhwani</span></div>
         <div class="info"><span class="venue">Red Door Cafe · Saibaba Colony</span><h3>Red Door Cafe</h3><p class="note">April 2026, live with my 15-piece band, Dhwani. <a href="https://www.instagram.com/dhwanii.____/" target="_blank" rel="noopener" style="color:var(--ice)">@dhwanii.____ ↗</a></p></div>
       </article>
     </div>
@@ -539,12 +549,11 @@ footer .wrap { align-items: center; }
     <div class="dhwani-copy rv">
       <span class="kicker">Dhwani</span>
       <h2>Fifteen people. <span class="chrome-text">One sound.</span></h2>
-      <p class="lede">I co-founded Dhwani, a 15-member band that plays live across Coimbatore. Their last show was in April 2026 at Red Door Cafe in Saibaba Colony.</p>
+      <p class="lede">I co-founded Dhwani, a 15-member band that plays live across Coimbatore. Our last show was in April 2026 at Red Door Cafe in Saibaba Colony.</p>
       <div class="count"><div><b>15</b><span>members</span></div><div><b>2026</b><span>last show · Red Door Cafe</span></div></div>
       <div class="btns" data-dhwani-link></div>
     </div>
     <div class="slot rv" data-dhwani-photo><b>dhwani</b><small>band photo coming soon</small></div>
-    <div class="reel rv" data-dhwani-reel hidden></div>
   </div>
 </section>
 
@@ -598,7 +607,7 @@ const CONFIG = {
   email: "",                         // e.g. "bookings@rxhxt.in"
   dhwaniInstagram: "https://www.instagram.com/dhwanii.____/",
   dhwaniReel: "https://www.instagram.com/reel/DWyuHGqx1dv/",   // shown in the Dhwani section
-  dhwaniPhoto: "",                   // e.g. "media/dhwani.jpg"
+  dhwaniPhoto: "media/dhwani.jpg",
   spotifyArtist: "https://open.spotify.com/artist/2fJDFRlcVYPdxXZPsMbbXH",
   spotifyTrack: "",                  // paste Favela's song link here (Spotify → Share → Copy song link) to show just that song
   spotifyTrackTitle: "Favela",
@@ -624,6 +633,7 @@ const CONFIG = {
     { type: "image", src: "media/redbull-van.jpg", w: 1280, h: 591, alt: "Rxhxt in front of the Red Bull van", tag: "Red Bull" },
     { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "The dance floor at the Medai The Stage Halloween party", tag: "Medai · Halloween" },
     { type: "image", src: "media/medai-halloween.jpg", w: 1280, h: 960, alt: "A masked DJ under a warm spotlight at Medai The Stage", tag: "Halloween 2025" },
+    { type: "image", src: "media/dhwani.jpg", w: 576, h: 1024, alt: "Dhwani band members together in a lift", tag: "Dhwani" },
     { type: "image", src: "media/portrait-bmw.jpg", w: 960, h: 1280, alt: "Rxhxt standing in front of a white BMW at night", tag: "Off stage" },
     { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "The crowd jumping at Red Bull FOUR 2 SCORE", tag: "Red Bull crowd" },
   ],
@@ -654,17 +664,14 @@ const CONFIG = {
   if (CONFIG.pronounce) { const p = d.querySelector('[data-config="pronounce"]'); p.textContent = CONFIG.pronounce; p.hidden = false; }
   if (CONFIG.email) { d.querySelector("[data-email]").textContent = CONFIG.email; d.querySelector("[data-email-row]").hidden = false; }
   if (CONFIG.dhwaniInstagram) d.querySelector("[data-dhwani-link]").innerHTML = `<a class="btn" href="${CONFIG.dhwaniInstagram}" target="_blank" rel="noopener">${svg("instagram").replace('<svg', '<svg style="width:16px;height:16px;fill:currentColor"')} Dhwani on Instagram</a>`;
-  /* Dhwani's reel: the Instagram player on the live site, a link card inside the preview */
-  const inPreview = window.top !== window.self && /claude|anthropic/i.test(location.hostname + " " + document.referrer);
+  /* Dhwani: the band photo, with a button to their reel on Instagram */
   const rm = (CONFIG.dhwaniReel || "").match(/instagram\.com\/(reel|p)\/([A-Za-z0-9_-]+)/);
-  if (rm) {
-    const box = d.querySelector("[data-dhwani-reel]"), url = `https://www.instagram.com/${rm[1]}/${rm[2]}/`;
-    d.querySelector("[data-dhwani-photo]").hidden = true; box.hidden = false;
-    box.innerHTML = inPreview
-      ? `<a class="reel-card" href="${url}" target="_blank" rel="noopener"><span class="rp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><b>Dhwani · the reel</b><small>Watch on Instagram ↗</small></a>`
-      : `<iframe title="Dhwani reel on Instagram" src="https://www.instagram.com/${rm[1]}/${rm[2]}/embed/" allowtransparency="true" allow="encrypted-media; autoplay; clipboard-write; picture-in-picture" scrolling="no"></iframe><a class="reel-link" href="${url}" target="_blank" rel="noopener">Open the reel on Instagram ↗</a>`;
+  if (CONFIG.dhwaniPhoto) {
+    const slot = d.querySelector("[data-dhwani-photo]");
+    slot.classList.add("has-photo");
+    slot.innerHTML = `<img src="${CONFIG.dhwaniPhoto}" width="576" height="1024" alt="Dhwani band members together in a lift" loading="lazy">` +
+      (rm ? `<a class="reel-btn" href="https://www.instagram.com/${rm[1]}/${rm[2]}/" target="_blank" rel="noopener"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>Watch the reel</a>` : "");
   }
-  if (CONFIG.dhwaniPhoto && !rm) d.querySelector("[data-dhwani-photo]").innerHTML = `<img src="${CONFIG.dhwaniPhoto}" alt="Dhwani, the 15-member band, on stage" loading="lazy">`;
   d.querySelector("[data-platforms]").innerHTML = CONFIG.platforms.map((p) => {
     const inner = `<em>↗</em>${svg(p.icon)}<div><b>${p.name}</b><span>${p.url ? p.handle : "link coming soon"}</span></div>`;
     return p.url ? `<a class="plat rv" style="--c:${p.color}" href="${p.url}" target="_blank" rel="noopener">${inner}</a>` : `<div class="plat rv" style="--c:${p.color};opacity:.7">${inner}</div>`;
