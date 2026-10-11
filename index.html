@@ -423,13 +423,13 @@ footer { padding-block: 6px calc(6px + env(safe-area-inset-bottom, 0px)); backgr
 footer .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; }
 footer .socials { justify-self: start; flex-wrap: wrap; }
 footer .foot-logo { justify-self: center; font-size: 0; }
-footer .foot-logo img { height: clamp(44px, 5vw, 68px); width: auto; filter: drop-shadow(0 0 22px rgba(143,227,255,.22)); }
+footer .foot-logo img { height: clamp(36px, 4vw, 54px); width: auto; filter: drop-shadow(0 0 22px rgba(143,227,255,.22)); }
 footer small { justify-self: end; text-align: right; }
 @media (max-width: 760px) {
   footer { padding-block: 10px calc(18px + env(safe-area-inset-bottom, 0px)); }
   footer .wrap { grid-template-columns: 1fr; justify-items: center; gap: 10px; }
   footer .socials, footer small { justify-self: center; text-align: center; }
-  footer .foot-logo { order: -1; } footer .foot-logo img { height: auto; width: min(52vw, 200px); }
+  footer .foot-logo { order: -1; } footer .foot-logo img { height: auto; width: min(42vw, 160px); }
 }
 
 /* ---- v3: one fixed logo that grows, fades and settles into the background ---- */
@@ -450,6 +450,8 @@ main, footer, .hero { position: relative; z-index: 1; }
 .logo-melt { position: absolute; inset: 0; width: 100%; height: auto; opacity: 0; pointer-events: none; filter: url(#melt) saturate(1.25) brightness(1.08); }
 .logo-3d.melting .logo-melt { opacity: 1; -webkit-mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), #000 0%, #000 55%, transparent 100%); mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), #000 0%, #000 55%, transparent 100%); }
 .logo-3d.melting .logo-img { -webkit-mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), transparent 0%, transparent 45%, #000 100%); mask-image: radial-gradient(circle var(--mr, 80px) at var(--mx, 50%) var(--my, 50%), transparent 0%, transparent 45%, #000 100%); }
+.reach b { overflow-wrap: anywhere; }
+.dhwani-desc { color: var(--dim); max-width: 52ch; margin: 14px 0 0; font-size: 16px; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -635,6 +637,7 @@ main, footer, .hero { position: relative; z-index: 1; }
       <span class="kicker">Dhwani</span>
       <h2>Fifteen people. <span class="chrome-text">One sound.</span></h2>
       <p class="lede">I co-founded Dhwani, a 15-member band that plays live across Coimbatore.</p>
+      <p class="dhwani-desc">Every gig is built for the room we're playing. We put the set together as a band, rehearse it until it locks in, and play it fully live, from intimate cafe nights to college stages. With fifteen of us up there, it never sounds like a cover. It sounds like a crowd singing back.</p>
       <div class="count"><div><b>15</b><span>members</span></div></div>
       <div class="btns" data-dhwani-link></div>
     </div>
@@ -688,7 +691,7 @@ main, footer, .hero { position: relative; z-index: 1; }
    ========================================================== */
 const CONFIG = {
   pronounce: "",                     // e.g. 'say it "ruh-hut"'
-  email: "",                         // e.g. "bookings@rxhxt.in"
+  email: "rohit07.personal@gmail.com",                         // e.g. "bookings@rxhxt.in"
   dhwaniInstagram: "https://www.instagram.com/dhwanii.____/",
   dhwaniReel: "https://www.instagram.com/reel/DWyuHGqx1dv/",   // shown in the Dhwani section
   dhwaniPhoto: "media/dhwani.jpg",
