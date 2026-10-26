@@ -550,6 +550,13 @@ form.book .btn { white-space: nowrap; }
 .show-meta, .show-meta li, .show-by { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
 @media (max-width: 1100px) { .show-text h3 { font-size: clamp(22px, 3.4vw, 32px); } }
 @media (max-width: 620px) { .show { grid-template-columns: 1fr; } }
+
+/* rotating stills on a past-show card */
+.event[data-rotate] .media img { opacity: 0; transition: opacity .8s ease, transform .6s; }
+.event[data-rotate] .media img.on { opacity: 1; }
+.event[data-rotate] .show-dots { z-index: 2; bottom: 14px; }
+.event[data-rotate]:hover .show-dots { opacity: 0; }
+.event[data-rotate] .show-dots { transition: opacity .3s; }
 </style>
 </head>
 <body>
@@ -688,23 +695,6 @@ form.book .btn { white-space: nowrap; }
   <div class="wrap">
     <div class="rv"><span class="kicker">Upcoming</span><h2 style="margin-top:18px">Catch me <span class="chrome-text">live.</span></h2></div>
     <div class="shows-grid">
-      <article class="show rv" data-show="dusk" data-ends="2026-10-24T21:30:00+05:30">
-        <template data-past><article class="event moved"><div class="media"><img src="media/show-dusk-1.jpg" alt="Dusk and Drip poster" loading="lazy" style="object-position:50% 0"></div><div class="info"><span class="venue">Zen Lounge and Kitchen · 24 Oct 2026</span><h3>Dusk and Drip</h3><p class="note">Sundowner R&amp;B with CBEHIGH x SNRLED x CARECULTURE x SAVAGE.</p></div></article></template>
-        <button class="show-poster" type="button" aria-label="Open Dusk and Drip posters"><img src="media/show-dusk-1.jpg" alt="Dusk and Drip poster 1" class="on"><img src="media/show-dusk-2.jpg" alt="Dusk and Drip poster 2"><span class="show-dots"><i class="on"></i><i></i></span></button>
-        <div class="show-info">
-          <div class="show-date"><b>24</b><span>Oct 2026</span></div>
-          <div class="show-text">
-            <span class="venue">Sundowner R&amp;B</span>
-            <h3>Dusk and Drip</h3>
-            <p class="show-by">by CBEHIGH x SNRLED x CARECULTURE x SAVAGE</p>
-            <ul class="show-meta">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.4 3.6 2.1-.9 1.6L11 13.4V6h2v6.4Z"/></svg><span>Sat, 24 Oct · 5:30 PM to 9:30 PM</span></li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg><span>Zen Lounge and Kitchen, Nava India, Coimbatore</span></li>
-            </ul>
-            <a class="mini" href="https://www.google.com/maps/search/?api=1&amp;query=Zen+Lounge+and+Kitchen+Nava+India+Coimbatore" target="_blank" rel="noopener">Directions ↗</a>
-          </div>
-        </div>
-      </article>
       <article class="show rv" data-show="masq" data-ends="2026-10-31T21:00:00+05:30">
         <template data-past><article class="event moved"><div class="media"><img src="media/show-masq-2.jpg" alt="Masquerade poster featuring DJ rxhxt" loading="lazy" style="object-position:50% 0"></div><div class="info"><span class="venue">Medai The Stage · 31 Oct 2026</span><h3>Masquerade</h3><p class="note">Halloween night for Street Cause Coimbatore.</p></div></article></template>
         <button class="show-poster" type="button" aria-label="Open Masquerade posters"><img src="media/show-masq-1.jpg" alt="Masquerade poster 1" class="on"><img src="media/show-masq-2.jpg" alt="Masquerade poster 2"><span class="show-dots"><i class="on"></i><i></i></span></button>
@@ -754,6 +744,10 @@ form.book .btn { white-space: nowrap; }
   <div class="wrap">
     <div class="rv"><span class="kicker">Live</span><h2 style="margin-top:18px">Rooms I've <span class="chrome-text">moved.</span></h2></div>
     <div class="live-grid" data-live-grid>
+      <article class="event rv" data-rotate>
+        <div class="media"><img src="media/show-dusk-1.jpg" alt="Dusk and Drip poster" class="on" style="object-position:50% 0"><img src="media/show-dusk-2.jpg" alt="Dusk and Drip poster featuring DJ rxhxt" loading="lazy" style="object-position:50% 0"><img src="media/dusk-photo.jpg" alt="Rxhxt on the decks at Dusk and Drip with the crowd behind" loading="lazy" style="object-position:30% 70%"><video muted loop playsinline preload="none" poster="media/dusk-photo.jpg"><source src="media/dusk-clip.mp4" type="video/mp4"></video><span class="badge">Sundowner R&amp;B</span><span class="show-dots"><i class="on"></i><i></i><i></i></span></div>
+        <div class="info"><span class="venue">Zen Lounge and Kitchen · 24 Oct 2026</span><h3>Dusk and Drip</h3><p class="note">Sundowner R&amp;B with CBEHIGH x SNRLED x CARECULTURE x SAVAGE.</p></div>
+      </article>
       <article class="event rv">
         <div class="media" data-open="2"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt at Red Bull FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull · FOUR 2 SCORE</span></div>
         <div class="info"><span class="venue">Red Bull · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull Juggernaut booth.</p></div>
@@ -1117,6 +1111,15 @@ const CONFIG = {
   lb.addEventListener("touchend", (e) => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); tx = null; });
 
   /* ---------- live cards: clip plays on hover (desktop) ---------- */
+
+  /* ---------- past-show cards with several stills: swap every 3s ---------- */
+  d.querySelectorAll(".event[data-rotate]").forEach((c) => {
+    const imgs = [...c.querySelectorAll(".media img")], dots = [...c.querySelectorAll(".show-dots i")]; let k = 0;
+    if (imgs.length > 1 && !reduce) setInterval(() => { if (d.hidden || c.matches(":hover")) return; imgs[k].classList.remove("on"); if (dots[k]) dots[k].classList.remove("on"); k = (k + 1) % imgs.length; imgs[k].classList.add("on"); if (dots[k]) dots[k].classList.add("on"); }, 2000);
+    const list = imgs.map((im) => ({ type: "image", src: im.getAttribute("src"), alt: im.alt, tag: c.querySelector("h3").textContent }))
+      .concat([{ type: "video", src: "media/dusk-clip.mp4", poster: "media/dusk-photo.jpg", alt: "Dusk and Drip clip", tag: "Dusk and Drip" }]);
+    c.querySelector(".media").addEventListener("click", (e) => open(k, e.currentTarget, list));
+  });
   d.querySelectorAll(".event").forEach((c) => {
     const v = c.querySelector("video"); if (!v) return;
     c.addEventListener("mouseenter", () => { v.preload = "auto"; v.play().catch(() => {}); });
