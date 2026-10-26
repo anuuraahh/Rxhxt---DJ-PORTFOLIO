@@ -557,6 +557,19 @@ form.book .btn { white-space: nowrap; }
 .event[data-rotate] .show-dots { z-index: 2; bottom: 14px; }
 .event[data-rotate]:hover .show-dots { opacity: 0; }
 .event[data-rotate] .show-dots { transition: opacity .3s; }
+
+/* gallery filter tabs + show more */
+.gal-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(28px, 4vw, 44px); }
+.gal-tab { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: 99px; border: 1px solid #2a2d33; background: transparent; color: #c8ccd3; font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+.gal-tab small { font-family: var(--font-body); font-size: 11px; letter-spacing: 0; color: var(--dim); }
+.gal-tab:hover { border-color: var(--ice); color: #fff; }
+.gal-tab[aria-selected="true"] { background: var(--chrome, #e8ecf1); background: linear-gradient(180deg, #fff, #c9d0d8); color: #0a0b0d; border-color: transparent; }
+.gal-tab[aria-selected="true"] small { color: #3a3f47; }
+#gallery .masonry { margin-top: 22px; }
+.gal-more { display: flex; justify-content: center; margin-top: 18px; }
+.event .info .album-btn { justify-self: start; margin-top: 10px; }
+@media (max-width: 620px) { .gal-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); } .gal-tabs::-webkit-scrollbar { display: none; } .gal-tab { flex: 0 0 auto; } }
+@media (max-width: 620px) { #gallery .masonry { columns: 2; column-gap: 8px; } #gallery .tile { margin-bottom: 8px; border-radius: 14px; } #gallery .tile .tag { left: 8px; bottom: 8px; font-size: 9px; letter-spacing: .1em; padding: 4px 8px; } #gallery .tile .vid { top: 8px; right: 8px; width: 26px; height: 26px; } }
 </style>
 </head>
 <body>
@@ -746,15 +759,15 @@ form.book .btn { white-space: nowrap; }
     <div class="live-grid" data-live-grid>
       <article class="event rv" data-rotate>
         <div class="media"><img src="media/show-dusk-1.jpg" alt="Dusk and Drip poster" class="on" style="object-position:50% 0"><img src="media/show-dusk-2.jpg" alt="Dusk and Drip poster featuring DJ rxhxt" loading="lazy" style="object-position:50% 0"><img src="media/dusk-photo.jpg" alt="Rxhxt on the decks at Dusk and Drip with the crowd behind" loading="lazy" style="object-position:30% 70%"><video muted loop playsinline preload="none" poster="media/dusk-photo.jpg"><source src="media/dusk-clip.mp4" type="video/mp4"></video><span class="badge">Sundowner R&amp;B</span><span class="show-dots"><i class="on"></i><i></i><i></i></span></div>
-        <div class="info"><span class="venue">Zen Lounge and Kitchen · 24 Oct 2026</span><h3>Dusk and Drip</h3><p class="note">Sundowner R&amp;B with CBEHIGH x SNRLED x CARECULTURE x SAVAGE.</p></div>
+        <div class="info"><span class="venue">Zen Lounge and Kitchen · 24 Oct 2026</span><h3>Dusk and Drip</h3><p class="note">Sundowner R&amp;B with CBEHIGH x SNRLED x CARECULTURE x SAVAGE.</p><button class="mini album-btn" type="button" data-album="dusk">View all <span></span> ↗</button></div>
       </article>
       <article class="event rv">
-        <div class="media" data-open="2"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt at Red Bull FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull · FOUR 2 SCORE</span></div>
-        <div class="info"><span class="venue">Red Bull · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull Juggernaut booth.</p></div>
+        <div class="media" data-open="redbull"><img src="media/redbull-van.jpg" width="1280" height="591" alt="Rxhxt at Red Bull FOUR 2 SCORE" loading="lazy" style="object-position:58% 50%"><video muted loop playsinline preload="none" poster="media/redbull-booth-clip-poster.jpg"><source src="media/redbull-booth-clip.mp4" type="video/mp4"></video><span class="badge">Red Bull · FOUR 2 SCORE</span></div>
+        <div class="info"><span class="venue">Red Bull · Coimbatore</span><h3>FOUR 2 SCORE</h3><p class="note">Behind the decks in the Red Bull Juggernaut booth.</p><button class="mini album-btn" type="button" data-album="redbull">View all <span></span> ↗</button></div>
       </article>
       <article class="event rv">
-        <div class="media" data-open="5"><img src="media/medai-halloween.jpg" width="1280" height="960" alt="A DJ in a masked costume under a single warm spotlight at the Medai The Stage Halloween party" loading="lazy" style="object-position:66% 50%"><video muted loop playsinline preload="none" poster="media/medai-floor-poster.jpg"><source src="media/medai-floor.mp4" type="video/mp4"></video><span class="badge b">Fright Nights Halloween 2025</span></div>
-        <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in scary flickering lights, all night.</p></div>
+        <div class="media" data-open="fright"><img src="media/medai-halloween.jpg" width="1280" height="960" alt="A DJ in a masked costume under a single warm spotlight at the Medai The Stage Halloween party" loading="lazy" style="object-position:66% 50%"><video muted loop playsinline preload="none" poster="media/medai-floor-poster.jpg"><source src="media/medai-floor.mp4" type="video/mp4"></video><span class="badge b">Fright Nights Halloween 2025</span></div>
+        <div class="info"><span class="venue">Medai The Stage · Coimbatore</span><h3>Halloween Party</h3><p class="note">A packed floor in scary flickering lights, all night.</p><button class="mini album-btn" type="button" data-album="fright">View all <span></span> ↗</button></div>
       </article>
       <article class="event rv">
         <div class="media"><img src="media/dhwani.jpg" width="576" height="1024" alt="Dhwani band members together in a lift" loading="lazy" style="object-position:50% 40%"><span class="badge">With Dhwani</span></div>
@@ -768,7 +781,9 @@ form.book .btn { white-space: nowrap; }
 <section id="gallery">
   <div class="wrap">
     <div class="rv"><span class="kicker">Gallery</span><h2 style="margin-top:18px">From the <span class="chrome-text">booth.</span></h2></div>
+    <div class="gal-tabs" role="tablist" aria-label="Filter the gallery" data-gal-tabs></div>
     <div class="masonry" data-gallery></div>
+    <div class="gal-more"><button class="btn" type="button" data-gal-more hidden>Show more</button></div>
   </div>
 </section>
 
@@ -877,21 +892,40 @@ const CONFIG = {
     { type: "image", src: "media/meet-10.jpg", w: 899, h: 1599, alt: "Rxhxt behind the mixer with the crowd behind him", tag: "" },
   ],
   gallery: [
-    { type: "image", src: "media/dj-purple.jpg", w: 719, h: 1280, alt: "Rxhxt at the decks under purple light", tag: "On the decks" },
-    { type: "video", src: "media/booth-lights.mp4", poster: "media/booth-lights-poster.jpg", w: 816, h: 464, alt: "Rxhxt behind the decks at Fright Nights, the Halloween party", tag: "Fright Nights - Halloween Party" },
-    { type: "video", src: "media/redbull-booth-clip.mp4", poster: "media/redbull-booth-clip-poster.jpg", w: 464, h: 832, alt: "Prepping up Red Bull's Four 2 Score", tag: "Prepping up Red Bull's Four 2 Score" },
-    { type: "image", src: "media/redbull-booth.jpg", w: 960, h: 1280, alt: "Rxhxt throwing up a hand sign from the Red Bull DJ booth", tag: "FOUR 2 SCORE" },
-    { type: "image", src: "media/redbull-truck-booth.jpg", w: 960, h: 1280, alt: "Rxhxt DJing from the booth on top of the Red Bull truck at FOUR 2 SCORE", tag: "Red Bull FOUR 2 SCORE" },
-    { type: "video", src: "media/redbull-crowd-2.mp4", poster: "media/redbull-crowd-2-poster.jpg", w: 478, h: 850, alt: "The crowd dancing beside the Red Bull truck at Four 2 Score", tag: "Crowd vibes" },
-    { type: "video", src: "media/dacalty.mp4", poster: "media/dacalty-poster.jpg", w: 464, h: 832, alt: "A moment for Dacalty at Red Bull Four 2 Score", tag: "A moment for Dacalty" },
-    { type: "image", src: "media/redbull-van.jpg", w: 1280, h: 591, alt: "Rxhxt in front of the Red Bull Juggernaut van", tag: "Red Bull Juggernaut" },
-    { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "Crowd at Fright Nights, the Halloween party", tag: "Crowd at Fright Nights - Halloween Party" },
-    { type: "image", src: "media/medai-halloween.jpg", w: 1280, h: 960, alt: "A masked DJ under a warm spotlight at Medai The Stage", tag: "Fright Nights Halloween 2025" },
-    { type: "image", src: "media/dhwani.jpg", w: 576, h: 1024, alt: "Dhwani band members together in a lift", tag: "Dhwani" },
-    { type: "image", src: "media/portrait-bmw.jpg", w: 960, h: 1280, alt: "Rxhxt standing in front of a white BMW at night", tag: "Off stage" },
-    { type: "image", src: "media/portrait-red.jpg", w: 960, h: 1280, alt: "Rxhxt in a red shirt and sunglasses posing at night", tag: "Off stage" },
-    { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "Vibes at Red Bull's Four 2 Score", tag: "Vibes at Red Bull's Four 2 Score" },
-    { type: "video", src: "media/redbull-crowd-3.mp4", poster: "media/redbull-crowd-3-poster.jpg", w: 464, h: 832, alt: "Four 2 Score crowd", tag: "Four 2 Score crowd" },
+    { type: "image", src: "media/dd-p2.jpg", w: 1600, h: 1200, alt: "Rxhxt on the decks in front of the chrome rxhxt logo on the LED wall at Dusk and Drip", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "image", src: "media/redbull-truck-booth.jpg", w: 960, h: 1280, alt: "Rxhxt DJing from the booth on top of the Red Bull truck at FOUR 2 SCORE", tag: "Red Bull FOUR 2 SCORE", ev: "redbull" },
+    { type: "image", src: "media/dusk-photo.jpg", w: 720, h: 1280, alt: "Rxhxt on the decks with the Dusk and Drip crowd behind", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "video", src: "media/dacalty.mp4", poster: "media/dacalty-poster.jpg", w: 464, h: 832, alt: "A moment for Dacalty at Red Bull Four 2 Score", tag: "A moment for Dacalty", ev: "redbull" },
+    { type: "image", src: "media/medai-halloween.jpg", w: 1280, h: 960, alt: "A masked DJ under a warm spotlight at Medai The Stage", tag: "Fright Nights Halloween 2025", ev: "fright" },
+    { type: "video", src: "media/dd-v07.mp4", poster: "media/dd-v07-poster.jpg", w: 1280, h: 720, alt: "Moving lights over the crowd with rxhxt on the screen", tag: "Lights up", ev: "dusk" },
+    { type: "image", src: "media/redbull-booth.jpg", w: 960, h: 1280, alt: "Rxhxt throwing up a hand sign from the Red Bull DJ booth", tag: "FOUR 2 SCORE", ev: "redbull" },
+    { type: "video", src: "media/booth-lights.mp4", poster: "media/booth-lights-poster.jpg", w: 816, h: 464, alt: "Rxhxt behind the decks at Fright Nights, the Halloween party", tag: "Fright Nights - Halloween Party", ev: "fright" },
+    { type: "image", src: "media/dd-p1.jpg", w: 900, h: 1600, alt: "Rxhxt mixing on the Pioneer decks under a ring light", tag: "In the mix", ev: "dusk" },
+    { type: "image", src: "media/redbull-van.jpg", w: 1280, h: 591, alt: "Rxhxt in front of the Red Bull Juggernaut van", tag: "Red Bull Juggernaut", ev: "redbull" },
+    { type: "image", src: "media/dd-p3.jpg", w: 1600, h: 1200, alt: "Rxhxt centred under the rxhxt logo on the screen", tag: "Name in lights", ev: "dusk" },
+    { type: "video", src: "media/redbull-crowd.mp4", poster: "media/redbull-crowd-poster.jpg", w: 464, h: 832, alt: "Vibes at Red Bull's Four 2 Score", tag: "Vibes at Red Bull's Four 2 Score", ev: "redbull" },
+    { type: "video", src: "media/dd-v09.mp4", poster: "media/dd-v09-poster.jpg", w: 576, h: 1024, alt: "The crowd going off at Dusk and Drip", tag: "Hands up", ev: "dusk" },
+    { type: "video", src: "media/medai-floor.mp4", poster: "media/medai-floor-poster.jpg", w: 464, h: 832, alt: "Crowd at Fright Nights, the Halloween party", tag: "Crowd at Fright Nights - Halloween Party", ev: "fright" },
+    { type: "image", src: "media/dd-p4.jpg", w: 1600, h: 1200, alt: "Wide shot of Rxhxt at the decks under the blue rxhxt visuals", tag: "The setup", ev: "dusk" },
+    { type: "image", src: "media/dj-purple.jpg", w: 719, h: 1280, alt: "Rxhxt at the decks under purple light", tag: "On the decks", ev: "more" },
+    { type: "video", src: "media/dd-v13.mp4", poster: "media/dd-v13-poster.jpg", w: 720, h: 1280, alt: "Blue lights and hands up at Dusk and Drip", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "video", src: "media/redbull-booth-clip.mp4", poster: "media/redbull-booth-clip-poster.jpg", w: 464, h: 832, alt: "Prepping up Red Bull's Four 2 Score", tag: "Prepping up Red Bull's Four 2 Score", ev: "redbull" },
+    { type: "video", src: "media/dd-v12.mp4", poster: "media/dd-v12-poster.jpg", w: 720, h: 1280, alt: "The crowd with hands up at Dusk and Drip", tag: "Hands up", ev: "dusk" },
+    { type: "video", src: "media/redbull-crowd-2.mp4", poster: "media/redbull-crowd-2-poster.jpg", w: 478, h: 850, alt: "The crowd dancing beside the Red Bull truck at Four 2 Score", tag: "Crowd vibes", ev: "redbull" },
+    { type: "video", src: "media/dd-v01.mp4", poster: "media/dd-v01-poster.jpg", w: 720, h: 1280, alt: "The floor from the booth at Dusk and Drip", tag: "From the booth", ev: "dusk" },
+    { type: "image", src: "media/portrait-bmw.jpg", w: 960, h: 1280, alt: "Rxhxt standing in front of a white BMW at night", tag: "Off stage", ev: "more" },
+    { type: "video", src: "media/dd-v08.mp4", poster: "media/dd-v08-poster.jpg", w: 1280, h: 720, alt: "Moving lights and the crowd at Dusk and Drip", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "video", src: "media/redbull-crowd-3.mp4", poster: "media/redbull-crowd-3-poster.jpg", w: 464, h: 832, alt: "Four 2 Score crowd", tag: "Four 2 Score crowd", ev: "redbull" },
+    { type: "video", src: "media/dd-v11.mp4", poster: "media/dd-v11-poster.jpg", w: 720, h: 1280, alt: "Dancing at Dusk and Drip", tag: "On the floor", ev: "dusk" },
+    { type: "image", src: "media/dhwani.jpg", w: 576, h: 1024, alt: "Dhwani band members together in a lift", tag: "Dhwani", ev: "more" },
+    { type: "video", src: "media/dd-v03.mp4", poster: "media/dd-v03-poster.jpg", w: 480, h: 854, alt: "Dancing in the blue light at Dusk and Drip", tag: "On the floor", ev: "dusk" },
+    { type: "image", src: "media/portrait-red.jpg", w: 960, h: 1280, alt: "Rxhxt in a red shirt and sunglasses posing at night", tag: "Off stage", ev: "more" },
+    { type: "video", src: "media/dd-v02.mp4", poster: "media/dd-v02-poster.jpg", w: 576, h: 1024, alt: "The crowd moving at Dusk and Drip", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "video", src: "media/dd-v04.mp4", poster: "media/dd-v04-poster.jpg", w: 720, h: 1280, alt: "The crowd at Dusk and Drip", tag: "Crowd vibes", ev: "dusk" },
+    { type: "video", src: "media/dd-v05.mp4", poster: "media/dd-v05-poster.jpg", w: 720, h: 1280, alt: "The crowd at Dusk and Drip", tag: "Dusk and Drip", ev: "dusk" },
+    { type: "video", src: "media/dd-v06.mp4", poster: "media/dd-v06-poster.jpg", w: 720, h: 1280, alt: "Packed floor at Dusk and Drip", tag: "Packed floor", ev: "dusk" },
+    { type: "video", src: "media/dd-v10.mp4", poster: "media/dd-v10-poster.jpg", w: 720, h: 1280, alt: "Late night at Dusk and Drip", tag: "Late night", ev: "dusk" },
+    { type: "video", src: "media/dd-v14.mp4", poster: "media/dd-v14-poster.jpg", w: 1024, h: 576, alt: "Up close in the crowd at Dusk and Drip", tag: "In the crowd", ev: "dusk" },
   ],
 };
 </script>
@@ -1055,16 +1089,32 @@ const CONFIG = {
 
   /* ---------- gallery + lightbox ---------- */
   const G = CONFIG.gallery, gal = d.querySelector("[data-gallery]");
-  gal.innerHTML = G.map((g, i) => `<button class="tile rv" type="button" data-i="${i}" aria-label="Open: ${g.alt}">${g.type === "video"
+  const EVENTS = [["all", "All"], ["dusk", "Dusk and Drip"], ["redbull", "Four 2 Score"], ["fright", "Fright Nights"], ["more", "More"]];
+  const PAGE = 9;
+  let galKey = "all", galShown = PAGE, GV = G;
+  const tabs = d.querySelector("[data-gal-tabs]"), moreBtn = d.querySelector("[data-gal-more]");
+  const byEv = (k) => k === "all" ? G : G.filter((g) => g.ev === k);
+  tabs.innerHTML = EVENTS.map(([k, label]) => `<button type="button" role="tab" class="gal-tab" data-k="${k}" aria-selected="${k === "all"}">${label} <small>${byEv(k).length}</small></button>`).join("");
+  const tileHTML = (g, i) => `<button class="tile" type="button" data-i="${i}" aria-label="Open: ${g.alt}">${g.type === "video"
     ? `<video muted loop playsinline preload="none" poster="${g.poster}" width="${g.w}" height="${g.h}"><source src="${g.src}" type="video/mp4"></video><span class="vid">${'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>'}</span>`
-    : `<img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy">`}<span class="tag">${g.tag}</span></button>`).join("");
+    : `<img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy">`}<span class="tag">${g.tag}</span></button>`;
+  let vio = null;
+  if ("IntersectionObserver" in window && !reduce) vio = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: .35 });
+  const renderGal = () => {
+    GV = byEv(galKey);
+    if (vio) gal.querySelectorAll("video").forEach((v) => vio.unobserve(v));
+    gal.innerHTML = GV.slice(0, galShown).map(tileHTML).join("");
+    if (vio) gal.querySelectorAll("video").forEach((v) => vio.observe(v));
+    moreBtn.hidden = galShown >= GV.length;
+    moreBtn.textContent = `Show more (${GV.length - galShown})`;
+    tabs.querySelectorAll(".gal-tab").forEach((t) => t.setAttribute("aria-selected", String(t.dataset.k === galKey)));
+  };
+  tabs.addEventListener("click", (e) => { const t = e.target.closest(".gal-tab"); if (!t || t.dataset.k === galKey) return; galKey = t.dataset.k; galShown = PAGE; renderGal(); });
+  moreBtn.addEventListener("click", () => { galShown += PAGE; renderGal(); });
+  renderGal();
   const M = CONFIG.meet || [], meet = d.querySelector("[data-meet]");
   if (meet) meet.innerHTML = M.map((g, i) => `<button class="tile rv" type="button" data-i="${i}" aria-label="Open: ${g.alt}"><img src="${g.src}" width="${g.w}" height="${g.h}" alt="${g.alt}" loading="lazy"></button>`).join("");
   /* gallery clips play silently while on screen */
-  if ("IntersectionObserver" in window && !reduce) {
-    const vio = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }), { threshold: .35 });
-    gal.querySelectorAll("video").forEach((v) => vio.observe(v));
-  }
   const lb = d.querySelector("[data-lightbox]"), lbm = lb.querySelector("[data-lb-media]"), lbc = lb.querySelector("[data-lb-cap]");
   let cur = 0, lastFocus = null, L = G;
   const show = (i) => {
@@ -1074,9 +1124,11 @@ const CONFIG = {
   };
   const open = (i, from, list) => { L = list || G; lastFocus = from; show(i); lb.hidden = false; d.body.style.overflow = "hidden"; lb.querySelector(".x").focus(); };
   const close = () => { lb.hidden = true; lbm.innerHTML = ""; d.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); };
-  gal.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t, G); });
+  gal.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t, GV); });
   if (meet) meet.addEventListener("click", (e) => { const t = e.target.closest(".tile"); if (t) open(+t.dataset.i, t, M); });
-  d.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => open(+el.dataset.open, el)));
+  const album = (k) => G.filter((g) => g.ev === k);
+  d.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => { const L2 = album(el.dataset.open), src = el.querySelector("img")?.getAttribute("src"); open(Math.max(0, L2.findIndex((g) => g.src === src)), el, L2); }));
+  d.querySelectorAll("[data-album]").forEach((b) => { const L2 = album(b.dataset.album); b.querySelector("span").textContent = L2.length; b.addEventListener("click", (e) => { e.stopPropagation(); open(0, b, L2); }); });
   /* ---------- upcoming shows: posters swap every 3s; once a show ends it moves to "Rooms I've moved" ---------- */
   const showsSec = d.querySelector("[data-shows]"), liveGrid = d.querySelector("[data-live-grid]");
   if (showsSec) {
@@ -1117,7 +1169,7 @@ const CONFIG = {
     const imgs = [...c.querySelectorAll(".media img")], dots = [...c.querySelectorAll(".show-dots i")]; let k = 0;
     if (imgs.length > 1 && !reduce) setInterval(() => { if (d.hidden || c.matches(":hover")) return; imgs[k].classList.remove("on"); if (dots[k]) dots[k].classList.remove("on"); k = (k + 1) % imgs.length; imgs[k].classList.add("on"); if (dots[k]) dots[k].classList.add("on"); }, 2000);
     const list = imgs.map((im) => ({ type: "image", src: im.getAttribute("src"), alt: im.alt, tag: c.querySelector("h3").textContent }))
-      .concat([{ type: "video", src: "media/dusk-clip.mp4", poster: "media/dusk-photo.jpg", alt: "Dusk and Drip clip", tag: "Dusk and Drip" }]);
+      .concat(G.filter((g) => g.ev === "dusk" && g.src !== "media/dusk-photo.jpg"));
     c.querySelector(".media").addEventListener("click", (e) => open(k, e.currentTarget, list));
   });
   d.querySelectorAll(".event").forEach((c) => {
