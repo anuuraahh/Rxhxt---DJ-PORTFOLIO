@@ -571,7 +571,16 @@ form.book .btn { white-space: nowrap; }
 @media (max-width: 620px) { .gal-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); } .gal-tabs::-webkit-scrollbar { display: none; } .gal-tab { flex: 0 0 auto; } }
 @media (max-width: 620px) { #gallery .masonry { columns: 2; column-gap: 8px; } #gallery .tile { margin-bottom: 8px; border-radius: 14px; } #gallery .tile .tag { left: 8px; bottom: 8px; font-size: 9px; letter-spacing: .1em; padding: 4px 8px; } #gallery .tile .vid { top: 8px; right: 8px; width: 26px; height: 26px; } }
 .say-it { margin: 10px 0 0; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
-.say-it b { color: var(--ice); font-weight: 700; letter-spacing: .18em; }
+.say-it b { color: var(--ice); font-weight: 700; letter-spacing: .18em; margin: 0 -.18em 0 .3em; }
+.say-it .br { letter-spacing: 0; }
+
+.hero-say { position: relative; z-index: 2; margin: 14px 0 0; display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; opacity: var(--fo, 1); }
+.tag-play { display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px 0 9px; border-radius: 99px; border: 1px solid rgba(143,227,255,.35); background: rgba(0,0,0,.45); color: #e8ecf1; font: 600 11px/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, background .2s; }
+.tag-play:hover { border-color: var(--ice); background: rgba(143,227,255,.12); }
+.tag-play svg { width: 14px; height: 14px; fill: var(--ice); }
+.tag-play .i-stop, .tag-play.on .i-play { display: none; }
+.tag-play.on .i-stop { display: inline; }
+.tag-play.on { border-color: var(--ice); box-shadow: 0 0 18px rgba(143,227,255,.35); }
 </style>
 </head>
 <body>
@@ -613,7 +622,8 @@ form.book .btn { white-space: nowrap; }
   <div class="hero-inner">
     <div class="logo-spacer" data-spacer aria-hidden="true"></div>
     <h1 class="sr">Rxhxt, DJ and producer</h1>
-    <p class="say" data-config="pronounce" hidden></p>
+    <p class="say-it hero-say"><span><span class="br">(</span>pronounced<b>r-ik-st</b><span class="br">)</span></span><button class="tag-play" type="button" data-tag-play aria-label="Play my producer tag"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><path class="i-stop" d="M7 7h10v10H7z"/></svg><span>Hear the tag</span></button></p>
+    <audio src="media/producer-tag.mp3" preload="none" data-tag-audio></audio>
   </div>
   <div class="hero-foot" data-herofoot>
     <p class="tagline">Sounds you don't hear every day. <em>Sounds you never forget.</em></p>
@@ -673,7 +683,7 @@ form.book .btn { white-space: nowrap; }
 <!-- ============ MEET ============ -->
 <section id="meet">
   <div class="wrap">
-    <div class="rv"><span class="kicker">Meet</span><h2 style="margin-top:18px">Meet <span class="chrome-text">rxhxt.</span></h2><p class="say-it">(pronounced <b>rr-ik-st</b>)</p></div>
+    <div class="rv"><span class="kicker">Meet</span><h2 style="margin-top:18px">Meet <span class="chrome-text">rxhxt.</span></h2></div>
     <div class="masonry meet-grid" data-meet></div>
   </div>
 </section>
@@ -945,7 +955,7 @@ const CONFIG = {
 
 
   /* ---------- hero: logo grows and fades into the background as you scroll; background blurs ---------- */
-  const root = d.documentElement, logoBox = d.querySelector("[data-logo]"), heroFoot = d.querySelector("[data-herofoot]");
+  const heroSay = d.querySelector(".hero-say"), root = d.documentElement, logoBox = d.querySelector("[data-logo]"), heroFoot = d.querySelector("[data-herofoot]");
   const stage = d.querySelector("[data-stage]"), spacer = d.querySelector("[data-spacer]"), bgfx = d.querySelector("[data-bgfx]"), cue = d.querySelector(".scroll-cue");
   let homeY = innerHeight / 2, homeX = innerWidth / 2;
   const place = () => { const r = spacer.getBoundingClientRect(); homeY = r.top + scrollY + r.height / 2; homeX = r.left + r.width / 2; };
@@ -959,6 +969,7 @@ const CONFIG = {
     const hs = reduce ? 1 : 1 + e * .55, ho = 1 - e * .86;
     logoBox.style.setProperty("--hs", hs.toFixed(3)); logoBox.style.setProperty("--ho", ho.toFixed(3));
     heroFoot.style.setProperty("--fo", Math.max(0, 1 - y / (vh * .18)).toFixed(3));
+    if (heroSay) heroSay.style.setProperty("--fo", Math.max(0, 1 - y / (vh * .25)).toFixed(3));
     cue.style.setProperty("--fo", Math.max(0, 1 - y / (vh * .2)).toFixed(3));
   };
   addEventListener("resize", () => { const y = scrollY; place(); fx(); });
@@ -992,6 +1003,14 @@ const CONFIG = {
     requestAnimationFrame(tick);
   }
 
+
+  /* ---------- producer tag: play the "rxhxt on the beat" tag ---------- */
+  const tagBtn = d.querySelector("[data-tag-play]"), tagAud = d.querySelector("[data-tag-audio]");
+  if (tagBtn && tagAud) {
+    tagBtn.addEventListener("click", () => { if (tagAud.paused) { tagAud.currentTime = 0; tagAud.play().catch(() => {}); } else tagAud.pause(); });
+    tagAud.addEventListener("play", () => tagBtn.classList.add("on"));
+    ["pause", "ended"].forEach((ev) => tagAud.addEventListener(ev, () => tagBtn.classList.remove("on")));
+  }
   /* ---------- nav ---------- */
   const nav = d.querySelector(".nav"), burger = d.querySelector(".burger");
   const onScroll = () => nav.classList.toggle("scrolled", scrollY > 40);
